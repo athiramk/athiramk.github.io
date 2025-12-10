@@ -3,36 +3,69 @@
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <title>Athira | Developer Portfolio</title>
+  <title>Athira Madathil Kamala</title>
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com/css2?family=Fira+Code&family=Poppins:wght@500;700&display=swap" rel="stylesheet">
 
   <style>
+    /* Global */
     body {
       margin: 0;
-      font-family: "Segoe UI", sans-serif;
-      background-color: #fdfcf8;
-      color: #333;
+      font-family: 'Fira Code', monospace;
+      background-color: #2b2b2b;
+      color: #dcdcdc;
       line-height: 1.6;
     }
 
-    /* watercolor-style soft header */
+    a {
+      color: #ffa726;
+      text-decoration: none;
+    }
+    a:hover {
+      text-decoration: underline;
+    }
+
+    /* Header */
     header {
-      background: linear-gradient(135deg, #ffefd5, #ffe4e1, #e0f7fa);
+      background: #313335;
+      color: #ffffff;
       padding: 60px 20px;
       text-align: center;
+      border-bottom: 1px solid #444;
     }
 
     header h1 {
       margin: 0;
+      font-family: 'Poppins', sans-serif;
       font-size: 2.8rem;
-      color: #333;
+      color: #ffffff;
     }
 
-    header p {
+    /* Typing effect container */
+    .typing-container {
       font-size: 1.2rem;
+      color: #bbbbbb;
+      font-family: 'Fira Code', monospace;
       margin-top: 10px;
-      opacity: 0.85;
+      white-space: pre;
+      overflow: hidden;
+      border-right: 2px solid #ffa726; /* cursor */
+      width: 0;
+      animation: typing 4s steps(80, end) forwards, blink 0.75s step-end infinite;
     }
 
+    @keyframes typing {
+      from { width: 0; }
+      to { width: 100%; }
+    }
+
+    @keyframes blink {
+      from, to { border-color: transparent; }
+      50% { border-color: #ffa726; }
+    }
+
+    /* Sections */
     section {
       max-width: 900px;
       margin: 50px auto;
@@ -40,39 +73,68 @@
     }
 
     h2 {
+      font-family: 'Poppins', sans-serif;
       font-size: 1.8rem;
-      border-left: 5px solid #f6b8c3;
+      border-left: 5px solid #ffa726;
       padding-left: 12px;
+      color: #ffffff;
     }
 
+    /* Cards for all sections */
     .card {
-      background: white;
+      background: #3c3f41;
       padding: 20px;
       margin: 20px 0;
-      border-radius: 12px;
-      box-shadow: 0px 2px 8px rgba(0,0,0,0.05);
+      border-radius: 8px;
+      box-shadow: 0px 2px 10px rgba(0,0,0,0.5);
       transition: transform 0.1s ease-in-out;
+      font-family: 'Fira Code', monospace;
     }
 
     .card:hover {
       transform: translateY(-3px);
     }
 
+    .card h3 {
+      margin-top: 0;
+      color: #ffa726;
+    }
+
+    /* Code-style cards for projects and sections */
+    .code-card {
+      background: #2b2b2b;
+      border: 1px solid #444;
+      font-family: 'Fira Code', monospace;
+      padding: 20px;
+      border-radius: 5px;
+      overflow-x: auto;
+      position: relative;
+    }
+
+    .code-line {
+      display: block;
+      white-space: pre;
+    }
+
+    .line-number {
+      display: inline-block;
+      width: 30px;
+      color: #555;
+      user-select: none;
+    }
+
+    .code-keyword { color: #cc7832; }   /* orange */
+    .code-string { color: #6a8759; }    /* green */
+    .code-comment { color: #808080; }   /* gray */
+
+    /* Footer */
     footer {
       margin-top: 50px;
       padding: 30px;
       text-align: center;
-      background: #faf1e6;
-      color: #555;
-    }
-
-    a {
-      color: #cc6699;
-      text-decoration: none;
-    }
-
-    a:hover {
-      text-decoration: underline;
+      background: #313335;
+      color: #999;
+      border-top: 1px solid #444;
     }
   </style>
 </head>
@@ -81,84 +143,87 @@
 
   <!-- Header -->
   <header>
-    <h1>Hello, I'm Athira 👩🏻‍💻</h1>
-    <p>A backend developer who loves learning, building, and collaborating.</p>
+    <h1>Hi, I'm Athira </h1>
+    <div class="typing-container">
+      Software Engineer passionate about learning, collaborating, and building meaningful software
+    </div>
   </header>
 
   <!-- About Section -->
   <section>
     <h2>About Me</h2>
-    <div class="card">
-      <p>
-        I'm a software developer with 13 years of experience — mostly in Java & backend engineering,
-        but also curious about front-end, databases, and cloud-native systems.
-      </p>
-      <p>
-        I enjoy solving problems, exploring data structures, and learning how things work beneath the surface.
-        I value collaboration, clarity, and building things that make someone’s day easier.
-      </p>
-      <p>
-        Outside of work, I’ve recently gotten into <strong>watercolor painting</strong>, 
-        doodling small nature sketches, journaling, and discovering cozy cafes around the city ☕.
-      </p>
+    <div class="card code-card">
+      <span class="code-line"><span class="line-number">1</span> <span class="code-comment">// Software developer with 13 years of experience</span></span>
+      <span class="code-line"><span class="line-number">2</span> <span class="code-keyword">class</span> <span class="code-string">Athira</span> {</span>
+      <span class="code-line"><span class="line-number">3</span>     <span class="code-comment">// Java backend, API design, distributed systems</span></span>
+      <span class="code-line"><span class="line-number">4</span>     <span class="code-keyword">void</span> <span class="code-string">creativeHobbies()</span> {</span>
+      <span class="code-line"><span class="line-number">5</span>         <span class="code-comment">// watercolor painting, sketching, journaling</span></span>
+      <span class="code-line"><span class="line-number">6</span>     }</span>
+      <span class="code-line"><span class="line-number">7</span> }</span>
     </div>
   </section>
 
-  <!-- Skills -->
+  <!-- Skills Section -->
   <section>
-    <h2>What I’m Good At</h2>
-    <div class="card">
-      <p><strong>Languages:</strong> Java, C++, SQL, JavaScript (beginner)</p>
-      <p><strong>Backend:</strong> Spring Boot, REST APIs, Microservices</p>
-      <p><strong>Databases:</strong> PostgreSQL, MySQL, Oracle</p>
-      <p><strong>Tools:</strong> Docker, Kubernetes, Git</p>
-      <p><strong>Interests:</strong> algorithms, distributed systems, clean architecture, learning new things</p>
+    <h2>Skills</h2>
+    <div class="card code-card">
+      <span class="code-line"><span class="line-number">1</span> <span class="code-comment">// Languages, Backend, Databases, Tools, Interests</span></span>
+      <span class="code-line"><span class="line-number">2</span> <span class="code-keyword">String[]</span> <span class="code-string">languages</span> = {"Java", "C++", "SQL", "JavaScript"};</span>
+      <span class="code-line"><span class="line-number">3</span> <span class="code-keyword">String[]</span> <span class="code-string">backend</span> = {"Spring Boot", "REST APIs", "Microservices"};</span>
+      <span class="code-line"><span class="line-number">4</span> <span class="code-keyword">String[]</span> <span class="code-string">databases</span> = {"PostgreSQL", "MySQL", "Oracle"};</span>
+      <span class="code-line"><span class="line-number">5</span> <span class="code-keyword">String[]</span> <span class="code-string">tools</span> = {"Docker", "Kubernetes", "Git"};</span>
+      <span class="code-line"><span class="line-number">6</span> <span class="code-keyword">String[]</span> <span class="code-string">interests</span> = {"Algorithms", "Distributed Systems", "Clean Architecture"};</span>
     </div>
   </section>
 
-  <!-- Projects -->
+  <!-- Projects Section -->
   <section>
-    <h2>Things I am building outside of Work</h2>
+    <h2>Projects</h2>
 
-    <div class="card">
-      <h3>Job Application Tracker</h3>
-      <p>
-        My full-stack learning project — a clean and simple tool built with 
-        <strong>React + Spring Boot</strong> to track roles, status, and progress.
-      </p>
+    <div class="code-card">
+      <span class="code-line"><span class="line-number">1</span> <span class="code-comment">// Network Device Monitoring System</span></span>
+      <span class="code-line"><span class="line-number">2</span> <span class="code-keyword">public class</span> <span class="code-string">NetworkMonitor</span> {</span>
+      <span class="code-line"><span class="line-number">3</span>     <span class="code-comment">// Monitors thousands of devices in real-time</span></span>
+      <span class="code-line"><span class="line-number">4</span>     <span class="code-keyword">void</span> <span class="code-string">monitorDevices()</span> {}</span>
+      <span class="code-line"><span class="line-number">5</span> }</span>
     </div>
 
-    <div class="card">
-      <h3>Sohum Hearing Screening (Volunteer)</h3>
-      <p>
-        Contributed C++ features to a neonatal hearing screening device for early diagnosis.
-        A meaningful project that blended healthcare and engineering.
-      </p>
+    <div class="code-card">
+      <span class="code-line"><span class="line-number">1</span> <span class="code-comment">// Job Application Tracker</span></span>
+      <span class="code-line"><span class="line-number">2</span> <span class="code-keyword">function</span> <span class="code-string">trackApplications()</span> {</span>
+      <span class="code-line"><span class="line-number">3</span>     <span class="code-comment">// React + Spring Boot full-stack project</span></span>
+      <span class="code-line"><span class="line-number">4</span> }</span>
     </div>
-  </section>
 
-  <!-- Community -->
-  <section>
-    <h2>Community Work</h2>
-    <div class="card">
-      <p>
-        Part of volunteer-driven coordination during the 2018 Kerala floods —
-        helping organise local resources and logistics during relief efforts.
-      </p>
+    <div class="code-card">
+      <span class="code-line"><span class="line-number">1</span> <span class="code-comment">// Sohum Hearing Screening (Volunteer)</span></span>
+      <span class="code-line"><span class="line-number">2</span> <span class="code-keyword">class</span> <span class="code-string">HearingScreening</span> {</span>
+      <span class="code-line"><span class="line-number">3</span>     <span class="code-comment">// C++ contributions to neonatal hearing device</span></span>
+      <span class="code-line"><span class="line-number">4</span> };</span>
     </div>
   </section>
 
-  <!-- Contact -->
+  <!-- Community Section -->
   <section>
-    <h2>Say Hello</h2>
-    <div class="card">
-      <p>GitHub: <a href="#">github.com/athiramk</a></p>
-      <p>LinkedIn: <a href="#">linkedin.com/in/athiramk</a></p>
+    <h2>Community Involvement</h2>
+    <div class="card code-card">
+      <span class="code-line"><span class="line-number">1</span> <span class="code-comment">// Coordinated relief efforts during 2018 Kerala floods</span></span>
+    </div>
+  </section>
+
+  <!-- Contact Section -->
+  <section>
+    <h2>Contact</h2>
+    <div class="card code-card">
+      <span class="code-line"><span class="line-number">1</span> <span class="code-comment">// Email, GitHub, LinkedIn</span></span>
+      <span class="code-line"><span class="line-number">2</span> Email: <span class="code-string">your-email@example.com</span></span>
+      <span class="code-line"><span class="line-number">3</span> GitHub: <span class="code-string">github.com/athiramk</span></span>
+      <span class="code-line"><span class="line-number">4</span> LinkedIn: <span class="code-string">linkedin.com/in/athiramk</span></span>
     </div>
   </section>
 
   <footer>
-    <p>Made with ☕ + 🎨 + 💻 by Athira</p>
+    <p>Made with ☕ + 💬 by Athira</p>
   </footer>
 
 </body>
