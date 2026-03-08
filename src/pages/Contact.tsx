@@ -82,8 +82,8 @@ const Contact = () => {
   }
 
   const socials = [
-    { icon: Github, label: "GitHub", url: "https://github.com" },
-    { icon: Linkedin, label: "LinkedIn", url: "https://linkedin.com" },
+    { icon: Github, label: "GitHub", url: "https://github.com/athiramk/" },
+    { icon: Linkedin, label: "LinkedIn", url: "https://www.linkedin.com/in/athiramk/" },
   ];
 
   return (
