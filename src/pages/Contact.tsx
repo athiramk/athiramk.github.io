@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { z } from "zod";
-import { Send, CheckCircle } from "lucide-react";
+import { Send, CheckCircle, Github, Linkedin, Twitter, Mail } from "lucide-react";
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100, "Name must be under 100 characters"),
@@ -79,13 +79,36 @@ const Contact = () => {
     );
   }
 
+  const socials = [
+    { icon: Github, label: "GitHub", url: "https://github.com" },
+    { icon: Linkedin, label: "LinkedIn", url: "https://linkedin.com" },
+    { icon: Twitter, label: "Twitter / X", url: "https://x.com" },
+    { icon: Mail, label: "hello@example.com", url: "mailto:hello@example.com" },
+  ];
+
   return (
-    <div className="space-y-8 max-w-lg">
+    <div className="space-y-10 max-w-lg">
       <div>
         <h1 className="text-3xl font-bold tracking-tight text-foreground">Contact</h1>
         <p className="text-muted-foreground mt-1">
           Have a question or want to work together? Drop me a message.
         </p>
+      </div>
+
+      {/* Social links */}
+      <div className="flex flex-wrap gap-3">
+        {socials.map((s) => (
+          <a
+            key={s.label}
+            href={s.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-md border border-border px-3 py-2 text-sm text-muted-foreground hover:text-foreground hover:border-primary/30 transition-colors"
+          >
+            <s.icon size={16} />
+            {s.label}
+          </a>
+        ))}
       </div>
 
       <form onSubmit={handleSubmit} className="space-y-5" noValidate>
