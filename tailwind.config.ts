@@ -14,8 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        heading: ['"Space Grotesk"', 'sans-serif'],
-        body: ['"Inter"', 'sans-serif'],
+        heading: ['"Source Serif 4"', 'serif'],
+        body: ['"Source Serif 4"', 'serif'],
       },
       colors: {
         border: "hsl(var(--border))",
