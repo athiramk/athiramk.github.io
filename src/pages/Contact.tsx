@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { z } from "zod";
 import { Send, CheckCircle, Github, Linkedin } from "lucide-react";
+import { useSeo } from "@/hooks/use-seo";
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100, "Name must be under 100 characters"),
@@ -16,6 +17,7 @@ type FormErrors = Partial<Record<keyof FormData, string>>;
 const FORMSPREE_URL = "https://formspree.io/f/your-form-id";
 
 const Contact = () => {
+  useSeo({ title: "Contact", description: "Get in touch with Athira Kamala – Senior Software Developer based in Melbourne." });
   const [form, setForm] = useState<FormData>({ name: "", email: "", subject: "", message: "" });
   const [errors, setErrors] = useState<FormErrors>({});
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");

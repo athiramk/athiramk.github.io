@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link2, BookOpen, Play, Wrench, ExternalLink } from "lucide-react";
+import { useSeo } from "@/hooks/use-seo";
 
 const sections = ["All", "Links", "Books", "Media", "Tools"] as const;
 
@@ -42,6 +43,7 @@ const sectionIcons: Record<string, React.ElementType> = {
 };
 
 const Bookmarks = () => {
+  useSeo({ title: "Bookmarks", description: "Curated links, books, talks, and tools recommended by Athira Kamala." });
   const [active, setActive] = useState<string>("All");
 
   const filtered = active === "All"
