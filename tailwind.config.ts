@@ -14,8 +14,8 @@ export default {
     },
     extend: {
       fontFamily: {
-        heading: ['"Lora"', 'serif'],
-        body: ['"Nunito"', 'sans-serif'],
+        heading: ['"Fraunces"', 'serif'],
+        body: ['"Work Sans"', 'sans-serif'],
       },
       colors: {
         border: "hsl(var(--border))",
