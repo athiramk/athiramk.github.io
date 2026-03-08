@@ -104,6 +104,8 @@ const skills = [
 ];
 
 const Resume = () => {
+  useSeo({ title: "Resume", description: "Athira Kamala's resume – 12+ years of experience in Java, Spring Boot, Microservices, and Cloud across IAG and Telstra." });
+
   return (
     <div className="space-y-10">
       {/* Header */}

@@ -35,6 +35,8 @@ const hobbies = [
 ];
 
 const Hobbies = () => {
+  useSeo({ title: "Hobbies", description: "Athira Kamala's hobbies – music, photography, reading, hiking, cooking, and gaming." });
+
   return (
     <div className="space-y-8">
       <div>

@@ -17,6 +17,7 @@ type FormErrors = Partial<Record<keyof FormData, string>>;
 const FORMSPREE_URL = "https://formspree.io/f/your-form-id";
 
 const Contact = () => {
+  useSeo({ title: "Contact", description: "Get in touch with Athira Kamala – Senior Software Developer based in Melbourne." });
   const [form, setForm] = useState<FormData>({ name: "", email: "", subject: "", message: "" });
   const [errors, setErrors] = useState<FormErrors>({});
   const [status, setStatus] = useState<"idle" | "submitting" | "success" | "error">("idle");
