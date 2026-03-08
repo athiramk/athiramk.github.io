@@ -3,9 +3,14 @@ import { useSeo } from "@/hooks/use-seo";
 
 const hobbies = [
   {
-    title: "Music",
-    description: "Playing guitar and discovering new artists. Music is my go-to for unwinding after a long day.",
-    image: publicUrl("images/hobby-music.jpg"),
+    title: "Watercolour Painting",
+    description: "Bringing landscapes and florals to life with watercolours. I love the unpredictability and flow of the medium.",
+    image: publicUrl("images/hobby-watercolor.jpg"),
+  },
+  {
+    title: "Cooking",
+    description: "Trying new recipes and cuisines. I find cooking to be a creative and meditative process.",
+    image: publicUrl("images/hobby-cooking.jpg"),
   },
   {
     title: "Hiking",
@@ -14,23 +19,18 @@ const hobbies = [
   },
   {
     title: "Reading",
-    description: "From sci-fi novels to design books — I always have something on my nightstand.",
+    description: "From fiction to non-fiction — I always have something on my nightstand. A great way to unwind and learn.",
     image: publicUrl("images/hobby-reading.jpg"),
   },
   {
-    title: "Photography",
-    description: "Capturing moments and experimenting with composition. Mostly street and landscape photography.",
-    image: publicUrl("images/hobby-photography.jpg"),
+    title: "Writing",
+    description: "Journaling thoughts and crafting stories. Writing helps me process ideas and express creativity.",
+    image: publicUrl("images/hobby-writing.jpg"),
   },
   {
-    title: "Cooking",
-    description: "Trying new recipes and cuisines. I find cooking to be a creative and meditative process.",
-    image: publicUrl("images/hobby-cooking.jpg"),
-  },
-  {
-    title: "Gaming",
-    description: "Story-driven games and indie titles are my favorites. A great way to experience interactive storytelling.",
-    image: publicUrl("images/hobby-gaming.jpg"),
+    title: "Playing Volleyball",
+    description: "Love the energy of a good volleyball game. It's a great way to stay active and have fun with friends.",
+    image: publicUrl("images/hobby-volleyball.jpg"),
   },
 ];
 
