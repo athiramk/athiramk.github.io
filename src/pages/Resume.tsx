@@ -7,63 +7,35 @@ const experience = [
     company: "IAG (through Infosys)",
     period: "Jun 2022 — Aug 2025 · Melbourne",
     tags: ["Java", "Spring", "RESTful API", "CI/CD", "DevOps"],
-    points: [
-      "Enhanced and maintained containerised backend services of the customer facing insurance application using Java Spring Boot",
-      "Optimised and maintained a Java based RESTful API integration that facilitated real-time data synchronization between the external partner application and backend database",
-      "Involved in vulnerability identification using Snyk and GitHub security and mitigation to improve security",
-      "Involved in the development activities of Bitbucket to GitHub and Nexus to Nexus3 migration",
-      "Introduced CI/CD pipelines with GitHub, Jenkins, Bamboo and Nexus, cutting application deployment time by 40%",
-      "Improved monitoring and operational processes, reducing problem resolution time",
-      "Mentored team members through code reviews and worked with product owners, architects, and QA teams",
-      "Actively contributed to technical debt reduction and improving documentation",
-    ],
+    summary: "Built and maintained backend services for a customer-facing insurance platform. Owned RESTful API integrations for real-time data sync with partner systems, set up CI/CD pipelines that cut deployment time by 40%, and drove security improvements through vulnerability scanning. Also mentored developers and led technical debt reduction efforts.",
   },
   {
     role: "Technology Lead",
     company: "Telstra (through Infosys)",
     period: "Oct 2021 — Jun 2022 · India",
     tags: ["Java", "Spring", "Microservices", "New Relic", "NoSQL"],
-    points: [
-      "Designed and implemented a cloud-native, event-driven microservices architecture to diagnose faults in customer networks which reduced problem resolution time",
-      "Created New Relic dashboards for device health, latency, uptime, and performance insights",
-      "Mentored engineers and provided technical guidance on system enhancements",
-      "Refactored legacy backend applications using Spring Boot, Hibernate, and OOP principles to improve code reusability and simplify future updates",
-    ],
+    summary: "Designed a cloud-native, event-driven microservices system for diagnosing faults in customer networks, significantly reducing resolution time. Built observability dashboards in New Relic and mentored engineers while modernising legacy backends with Spring Boot and Hibernate.",
   },
   {
     role: "Technology Analyst",
     company: "Telstra (through Infosys)",
     period: "Oct 2017 — Sep 2021 · Melbourne: Oct 2018 – Aug 2019",
     tags: ["C++", "Perl", "Python", "SQL"],
-    points: [
-      "Designed and implemented Netcool/OMNIbus architecture, including high-availability object servers and process agent configuration files",
-      "Developed custom probe rules files (SNMP, Syslog) to parse events from Cisco, Ericsson, and Alcatel devices",
-      "Designed custom Web GUI dashboards and filters, improving alarm visibility for network operation centres",
-      "Managed performance tuning of ObjectServers and conducted routine maintenance on Solaris/Linux platforms",
-      "Managed stakeholder relationships and prioritized maintenance and feature requests",
-    ],
+    summary: "Architected and maintained Netcool/OMNIbus infrastructure for large-scale network monitoring. Developed custom probe rules to parse events from multi-vendor devices (Cisco, Ericsson, Alcatel), designed operational dashboards for network operation centres, and managed platform performance tuning on Solaris/Linux.",
   },
   {
     role: "Senior Systems Engineer",
     company: "Telstra (through Infosys)",
     period: "Oct 2015 — Sep 2017 · India",
     tags: ["C++", "Perl", "Python", "SQL", "Splunk"],
-    points: [
-      "Configured and customized Netcool/Impact policies for event enrichment, deduplication, and automated ticketing",
-      "Integrated Netcool with Remedy ARS using gateways for bidirectional ticket synchronization",
-      "Enhanced application monitoring and logging using Splunk",
-    ],
+    summary: "Configured Netcool/Impact policies for automated event enrichment and ticketing. Integrated monitoring with Remedy ARS for bidirectional ticket sync and enhanced application observability using Splunk.",
   },
   {
     role: "Systems Engineer",
     company: "Telstra (through Infosys)",
     period: "Sep 2013 — Sep 2015 · India",
     tags: ["C++", "Perl", "Shell", "SQL"],
-    points: [
-      "Installed, configured, and upgraded Netcool products (OMNIbus, Web GUI, Impact)",
-      "Wrote SQL triggers and procedures in OMNIbus to enhance, suppress, or reroute incoming events",
-      "Provided 24/7 on-call support for troubleshooting network monitoring solutions",
-    ],
+    summary: "Installed, configured, and upgraded Netcool monitoring products. Wrote SQL triggers and procedures for event processing and provided 24/7 on-call support for network monitoring solutions.",
   },
 ];
 
@@ -143,11 +115,7 @@ const Resume = () => {
                   </span>
                 ))}
               </div>
-              <ul className="mt-2 space-y-1 text-sm text-muted-foreground list-disc list-outside ml-4">
-                {exp.points.map((point, j) => (
-                  <li key={j} className="leading-relaxed">{point}</li>
-                ))}
-              </ul>
+              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{exp.summary}</p>
             </div>
           ))}
         </div>
