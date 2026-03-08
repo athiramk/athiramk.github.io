@@ -2,8 +2,6 @@ import { Link, useLocation } from "react-router-dom";
 import { Sun, Moon, Menu, X } from "lucide-react";
 import { useTheme } from "@/hooks/use-theme";
 import { useState } from "react";
-import headerBotanical from "@/assets/header-botanical.png";
-import footerBotanical from "@/assets/footer-botanical.png";
 
 const navLinks = [
   { to: "/", label: "Home" },
@@ -89,15 +87,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
             ))}
           </div>
         )}
-
-        {/* Header botanical illustration */}
-        <div className="flex justify-center -mb-4 pointer-events-none">
-          <img
-            src={headerBotanical}
-            alt=""
-            className="h-10 w-auto opacity-60 dark:opacity-40"
-          />
-        </div>
       </header>
 
       <main className="flex-1 mx-auto w-full max-w-3xl px-6 py-12">
@@ -105,14 +94,6 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       </main>
 
       <footer className="border-t border-border py-8">
-        {/* Footer botanical illustration */}
-        <div className="flex justify-center -mt-12 mb-4 pointer-events-none">
-          <img
-            src={footerBotanical}
-            alt=""
-            className="h-8 w-auto opacity-50 dark:opacity-30"
-          />
-        </div>
         <div className="mx-auto max-w-3xl px-6 text-center text-sm text-muted-foreground">
           © {new Date().getFullYear()} Athira Kamala. All rights reserved.
         </div>
