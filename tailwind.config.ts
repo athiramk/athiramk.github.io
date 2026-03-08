@@ -13,10 +13,7 @@ export default {
       },
     },
     extend: {
-      fontFamily: {
-        heading: ['"Source Serif 4"', 'serif'],
-        body: ['"Source Serif 4"', 'serif'],
-      },
+      fontFamily: {},
       colors: {
         border: "hsl(var(--border))",
         input: "hsl(var(--input))",
