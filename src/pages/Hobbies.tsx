@@ -40,19 +40,19 @@ const sideProjects = [
     title: "QR Code Crafter",
     description: "Generate beautiful, customizable QR codes for contacts and links — free and instant.",
     url: "https://athiramk.com/qr-code-crafter/",
-    emoji: "📱",
+    image: publicUrl("images/project-qr-code-crafter.png"),
   },
   {
     title: "FocusLens",
     description: "Discover how long you can truly focus — then use it to work smarter, not harder.",
     url: "https://athiramk.com/focus-lens/",
-    emoji: "🎯",
+    image: publicUrl("images/project-focus-lens.png"),
   },
   {
     title: "BodyRhythm",
     description: "Decode what your body is saying — track moods, energy, cravings, and more based on your cycle.",
     url: "https://athiramk.com/body-rhythm/",
-    emoji: "🌸",
+    image: publicUrl("images/project-body-rhythm.png"),
   },
 ];
 
