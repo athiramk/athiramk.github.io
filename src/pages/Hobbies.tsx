@@ -40,7 +40,7 @@ const Hobbies = () => {
   return (
     <div className="space-y-8">
       <div>
-        <h1 className="text-3xl font-bold tracking-tight text-foreground">Hobbies</h1>
+        <h1 className="text-3xl font-bold tracking-tight text-foreground">Hobbies and Side Projects</h1>
         <p className="text-muted-foreground mt-1">Things I enjoy outside of work.</p>
       </div>
 
