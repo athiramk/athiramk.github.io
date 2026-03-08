@@ -127,6 +127,22 @@ const Contact = () => {
           {status === "submitting" ? "Sending..." : "Send Message"}
         </button>
       </form>
+
+      {/* Social links */}
+      <div className="flex gap-3 pt-2 border-t border-border">
+        {socials.map((s) => (
+          <a
+            key={s.label}
+            href={s.url}
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center gap-2 rounded-md border border-border px-3 py-2 text-sm text-muted-foreground hover:text-foreground hover:border-primary/30 transition-colors"
+          >
+            <s.icon size={16} />
+            {s.label}
+          </a>
+        ))}
+      </div>
     </div>
   );
 };
