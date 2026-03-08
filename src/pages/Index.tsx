@@ -7,7 +7,7 @@ const Index = () => {
       <div className="flex-1 space-y-5">
         <div>
           <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground">
-            Hi, I'm <span className="text-primary">Athira Kamala</span>
+            Hi, I'm <span className="text-primary">Athira</span>
           </h1>
           <p className="text-base text-muted-foreground mt-2 font-medium">
             Software Developer · Designer · Creator
