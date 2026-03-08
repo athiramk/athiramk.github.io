@@ -1,5 +1,6 @@
 import { publicUrl } from "@/lib/basePath";
 import { useSeo } from "@/hooks/use-seo";
+import { ExternalLink } from "lucide-react";
 
 const hobbies = [
   {
@@ -34,37 +35,87 @@ const hobbies = [
   },
 ];
 
+const sideProjects = [
+  {
+    title: "QR Code Crafter",
+    description: "Generate beautiful, customizable QR codes for contacts and links — free and instant.",
+    url: "https://athiramk.com/qr-code-crafter/",
+    emoji: "📱",
+  },
+  {
+    title: "FocusLens",
+    description: "Discover how long you can truly focus — then use it to work smarter, not harder.",
+    url: "https://athiramk.com/focus-lens/",
+    emoji: "🎯",
+  },
+  {
+    title: "BodyRhythm",
+    description: "Decode what your body is saying — track moods, energy, cravings, and more based on your cycle.",
+    url: "https://athiramk.com/body-rhythm/",
+    emoji: "🌸",
+  },
+];
+
 const Hobbies = () => {
-  useSeo({ title: "Hobbies", description: "Athira Kamala's hobbies – music, photography, reading, hiking, cooking, and gaming." });
+  useSeo({ title: "Hobbies & Side Projects", description: "Athira Kamala's hobbies and side projects – watercolour, cooking, hiking, and web apps." });
 
   return (
-    <div className="space-y-8">
+    <div className="space-y-10">
       <div>
         <h1 className="text-3xl font-bold tracking-tight text-foreground">Hobbies and Side Projects</h1>
         <p className="text-muted-foreground mt-1">Things I enjoy outside of work.</p>
       </div>
 
-      <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
-        {hobbies.map((hobby) => (
-          <div
-            key={hobby.title}
-            className="group rounded-lg border border-border overflow-hidden hover:border-primary/30 transition-colors"
-          >
-            <div className="aspect-square w-full overflow-hidden bg-muted">
-              <img
-                src={hobby.image}
-                alt={hobby.title}
-                className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
-              />
-            </div>
-            <div className="p-4">
-              <h3 className="font-semibold text-foreground">{hobby.title}</h3>
-              <p className="mt-1 text-sm text-muted-foreground leading-relaxed">
-                {hobby.description}
+      {/* Side Projects */}
+      <div className="space-y-4">
+        <h2 className="text-xl font-semibold text-foreground">Side Projects</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {sideProjects.map((project) => (
+            <a
+              key={project.title}
+              href={project.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="group rounded-lg border border-border p-5 hover:border-primary/30 transition-colors flex flex-col gap-3"
+            >
+              <div className="flex items-center justify-between">
+                <span className="text-3xl">{project.emoji}</span>
+                <ExternalLink className="w-4 h-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
+              </div>
+              <h3 className="font-semibold text-foreground">{project.title}</h3>
+              <p className="text-sm text-muted-foreground leading-relaxed">
+                {project.description}
               </p>
+            </a>
+          ))}
+        </div>
+      </div>
+
+      {/* Hobbies */}
+      <div className="space-y-4">
+        <h2 className="text-xl font-semibold text-foreground">Hobbies</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-5">
+          {hobbies.map((hobby) => (
+            <div
+              key={hobby.title}
+              className="group rounded-lg border border-border overflow-hidden hover:border-primary/30 transition-colors"
+            >
+              <div className="aspect-square w-full overflow-hidden bg-muted">
+                <img
+                  src={hobby.image}
+                  alt={hobby.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+              <div className="p-4">
+                <h3 className="font-semibold text-foreground">{hobby.title}</h3>
+                <p className="mt-1 text-sm text-muted-foreground leading-relaxed">
+                  {hobby.description}
+                </p>
+              </div>
             </div>
-          </div>
-        ))}
+          ))}
+        </div>
       </div>
     </div>
   );
