@@ -5,6 +5,7 @@ export type BlogPost = {
   category: string;
   date: string;
   content: string;
+  image?: string;
 };
 
 export const categories = ["All", "Tech", "Art", "Life", "Random"] as const;
