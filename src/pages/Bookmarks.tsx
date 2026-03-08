@@ -1,5 +1,6 @@
 import { useState } from "react";
 import { Link2, BookOpen, Play, Wrench, ExternalLink } from "lucide-react";
+import { useSeo } from "@/hooks/use-seo";
 
 const sections = ["All", "Links", "Books", "Media", "Tools"] as const;
 

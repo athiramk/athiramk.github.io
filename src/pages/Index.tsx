@@ -6,6 +6,8 @@ import { useSeo } from "@/hooks/use-seo";
 
 const Index = () => {
   useSeo({ title: "Home", description: "Athira Kamala – Senior Software Developer specialising in Java, Spring Boot, Microservices, and Cloud. Based in Melbourne." });
+
+  return (
     <section className="flex flex-col-reverse md:flex-row items-center gap-10 md:gap-14 py-8">
       <div className="flex-1 space-y-5">
         <div>

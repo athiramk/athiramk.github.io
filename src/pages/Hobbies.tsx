@@ -1,4 +1,5 @@
 import { publicUrl } from "@/lib/basePath";
+import { useSeo } from "@/hooks/use-seo";
 
 const hobbies = [
   {

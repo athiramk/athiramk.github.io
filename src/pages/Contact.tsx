@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { z } from "zod";
 import { Send, CheckCircle, Github, Linkedin } from "lucide-react";
+import { useSeo } from "@/hooks/use-seo";
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100, "Name must be under 100 characters"),

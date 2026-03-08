@@ -1,8 +1,10 @@
 import { useState } from "react";
 import { Link } from "react-router-dom";
 import { blogPosts, categories } from "@/data/blogPosts";
+import { useSeo } from "@/hooks/use-seo";
 
 const Blog = () => {
+  useSeo({ title: "Blog", description: "Technical articles on Java, Spring Boot, cloud architecture, and software development by Athira Kamala." });
   const [active, setActive] = useState("All");
 
   const filtered = active === "All"

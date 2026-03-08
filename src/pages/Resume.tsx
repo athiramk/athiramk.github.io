@@ -1,4 +1,5 @@
 import { Download, Briefcase, GraduationCap, Award, Heart } from "lucide-react";
+import { useSeo } from "@/hooks/use-seo";
 
 const experience = [
   {
