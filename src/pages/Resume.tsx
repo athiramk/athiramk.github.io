@@ -115,11 +115,7 @@ const Resume = () => {
                   </span>
                 ))}
               </div>
-              <ul className="mt-2 space-y-1 text-sm text-muted-foreground list-disc list-outside ml-4">
-                {exp.points.map((point, j) => (
-                  <li key={j} className="leading-relaxed">{point}</li>
-                ))}
-              </ul>
+              <p className="mt-2 text-sm text-muted-foreground leading-relaxed">{exp.summary}</p>
             </div>
           ))}
         </div>
