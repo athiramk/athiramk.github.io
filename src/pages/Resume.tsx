@@ -120,28 +120,6 @@ const Resume = () => {
         </a>
       </div>
 
-      {/* Skills */}
-      <section className="space-y-4">
-        <h2 className="text-lg font-semibold text-foreground">Skills</h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
-          {skills.map((group) => (
-            <div key={group.category} className="rounded-lg border border-border p-4">
-              <h3 className="text-sm font-semibold text-foreground mb-2">{group.category}</h3>
-              <div className="flex flex-wrap gap-1.5">
-                {group.items.map((item) => (
-                  <span
-                    key={item}
-                    className="px-2.5 py-1 rounded-md bg-secondary text-secondary-foreground text-xs font-medium"
-                  >
-                    {item}
-                  </span>
-                ))}
-              </div>
-            </div>
-          ))}
-        </div>
-      </section>
-
       {/* Experience */}
       <section className="space-y-4">
         <div className="flex items-center gap-2">
@@ -219,6 +197,28 @@ const Resume = () => {
               <p className="text-xs text-muted-foreground font-medium">{c.period}</p>
               <h3 className="font-semibold text-foreground mt-0.5">{c.role}</h3>
               <p className="text-sm text-muted-foreground mt-1 leading-relaxed">{c.description}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      {/* Skills */}
+      <section className="space-y-4">
+        <h2 className="text-lg font-semibold text-foreground">Skills</h2>
+        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
+          {skills.map((group) => (
+            <div key={group.category} className="rounded-lg border border-border p-4">
+              <h3 className="text-sm font-semibold text-foreground mb-2">{group.category}</h3>
+              <div className="flex flex-wrap gap-1.5">
+                {group.items.map((item) => (
+                  <span
+                    key={item}
+                    className="px-2.5 py-1 rounded-md bg-secondary text-secondary-foreground text-xs font-medium"
+                  >
+                    {item}
+                  </span>
+                ))}
+              </div>
             </div>
           ))}
         </div>
