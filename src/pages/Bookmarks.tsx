@@ -43,6 +43,7 @@ const sectionIcons: Record<string, React.ElementType> = {
 };
 
 const Bookmarks = () => {
+  useSeo({ title: "Bookmarks", description: "Curated links, books, talks, and tools recommended by Athira Kamala." });
   const [active, setActive] = useState<string>("All");
 
   const filtered = active === "All"
