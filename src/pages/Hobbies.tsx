@@ -1,33 +1,35 @@
+import { publicUrl } from "@/lib/basePath";
+
 const hobbies = [
   {
     title: "Music",
     description: "Playing guitar and discovering new artists. Music is my go-to for unwinding after a long day.",
-    image: "/images/hobby-music.jpg",
+    image: publicUrl("images/hobby-music.jpg"),
   },
   {
     title: "Hiking",
     description: "Exploring trails and getting out into nature whenever I can. There's nothing like a good summit view.",
-    image: "/images/hobby-hiking.jpg",
+    image: publicUrl("images/hobby-hiking.jpg"),
   },
   {
     title: "Reading",
     description: "From sci-fi novels to design books — I always have something on my nightstand.",
-    image: "/images/hobby-reading.jpg",
+    image: publicUrl("images/hobby-reading.jpg"),
   },
   {
     title: "Photography",
     description: "Capturing moments and experimenting with composition. Mostly street and landscape photography.",
-    image: "/images/hobby-photography.jpg",
+    image: publicUrl("images/hobby-photography.jpg"),
   },
   {
     title: "Cooking",
     description: "Trying new recipes and cuisines. I find cooking to be a creative and meditative process.",
-    image: "/images/hobby-cooking.jpg",
+    image: publicUrl("images/hobby-cooking.jpg"),
   },
   {
     title: "Gaming",
     description: "Story-driven games and indie titles are my favorites. A great way to experience interactive storytelling.",
-    image: "/images/hobby-gaming.jpg",
+    image: publicUrl("images/hobby-gaming.jpg"),
   },
 ];
 
