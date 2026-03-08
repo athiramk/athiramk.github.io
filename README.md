@@ -1,73 +1,201 @@
-# Welcome to your Lovable project
+# Athira Kamala — Personal Portfolio & Blog
 
-## Project info
+A personal portfolio and blog website built with React, Vite, TypeScript, Tailwind CSS, and shadcn/ui.
 
-**URL**: https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID
+Live preview: [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID)
 
-## How can I edit this code?
+---
 
-There are several ways of editing your application.
+## Table of Contents
 
-**Use Lovable**
+- [Project Structure](#project-structure)
+- [Pages Overview](#pages-overview)
+- [How to Add a Blog Post](#how-to-add-a-blog-post)
+- [Customising Pages](#customising-pages)
+- [Theming & Design System](#theming--design-system)
+- [Getting Started](#getting-started)
 
-Simply visit the [Lovable Project](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and start prompting.
+---
 
-Changes made via Lovable will be committed automatically to this repo.
+## Project Structure
 
-**Use your preferred IDE**
+```
+├── public/
+│   ├── images/              # Blog & hobby images (referenced via publicUrl())
+│   ├── favicon.ico
+│   ├── robots.txt
+│   └── sitemap.xml
+├── src/
+│   ├── assets/              # Imported assets (e.g. profile illustration)
+│   ├── components/
+│   │   ├── Layout.tsx        # Root layout — header, nav, footer, theme toggle
+│   │   ├── NavLink.tsx       # Reusable nav link component
+│   │   └── ui/              # shadcn/ui components (button, card, dialog, etc.)
+│   ├── data/
+│   │   └── blogPosts.ts     # Blog post content & categories
+│   ├── hooks/
+│   │   ├── use-theme.ts     # Dark/light mode toggle (persisted to localStorage)
+│   │   ├── use-seo.ts       # Per-page SEO (title, meta description, OG tags)
+│   │   └── use-mobile.tsx   # Mobile breakpoint detection
+│   ├── lib/
+│   │   ├── basePath.ts      # Helper for resolving public asset URLs
+│   │   └── utils.ts         # Tailwind merge utility (cn)
+│   ├── pages/
+│   │   ├── Index.tsx         # Home — hero section with intro & profile image
+│   │   ├── Blog.tsx          # Blog listing with category filters
+│   │   ├── BlogPost.tsx      # Individual blog post view
+│   │   ├── Hobbies.tsx       # Hobbies grid with images
+│   │   ├── Bookmarks.tsx     # Curated links, books, media & tools
+│   │   ├── Resume.tsx        # Work experience, education, skills
+│   │   ├── Contact.tsx       # Contact form (Formspree) + social links
+│   │   └── NotFound.tsx      # 404 page
+│   ├── App.tsx               # Router & provider setup
+│   ├── index.css             # Tailwind directives & CSS design tokens
+│   └── main.tsx              # React entry point
+├── index.html                # HTML shell (fonts, meta tags)
+├── tailwind.config.ts        # Tailwind theme (fonts, colours, tokens)
+└── vite.config.ts            # Vite config (aliases, dev server)
+```
 
-If you want to work locally using your own IDE, you can clone this repo and push changes. Pushed changes will also be reflected in Lovable.
+---
 
-The only requirement is having Node.js & npm installed - [install with nvm](https://github.com/nvm-sh/nvm#installing-and-updating)
+## Pages Overview
 
-Follow these steps:
+| Page | Route | File | Description |
+|------|-------|------|-------------|
+| Home | `/` | `src/pages/Index.tsx` | Hero intro with profile image, tagline, and CTA buttons |
+| Blog | `/blog` | `src/pages/Blog.tsx` | Card grid of posts with category filters (All, Tech, Art, Life, Random) |
+| Blog Post | `/blog/:id` | `src/pages/BlogPost.tsx` | Full blog post rendered from `blogPosts.ts` |
+| Hobbies | `/hobbies` | `src/pages/Hobbies.tsx` | Visual grid of hobbies with images and descriptions |
+| Bookmarks | `/bookmarks` | `src/pages/Bookmarks.tsx` | Curated links, books, media & tools with section filters |
+| Resume | `/resume` | `src/pages/Resume.tsx` | Work experience, education, skills, and interests |
+| Contact | `/contact` | `src/pages/Contact.tsx` | Contact form (via Formspree) and social links |
+
+---
+
+## How to Add a Blog Post
+
+All blog posts live in **`src/data/blogPosts.ts`**.
+
+### 1. Add an image (optional)
+
+Place your image in `public/images/` (e.g. `public/images/blog-my-topic.jpg`).
+
+### 2. Add the post object
+
+Open `src/data/blogPosts.ts` and add a new entry to the `blogPosts` array:
+
+```ts
+{
+  id: "my-new-post",                          // URL slug — must be unique
+  title: "My New Blog Post",
+  excerpt: "A short summary shown on the blog listing page.",
+  category: "Tech",                           // Must be: "Tech" | "Art" | "Life" | "Random"
+  date: "March 8, 2026",
+  image: publicUrl("images/blog-my-topic.jpg"), // Optional — omit for no image
+  content: `Your full post content here.
+
+## Subheading
+
+You can use **markdown-style** formatting with template literals.
+Multiple paragraphs are separated by \\n\\n.`,
+}
+```
+
+### 3. Add a new category (optional)
+
+To add a new filter category, update the `categories` array in the same file:
+
+```ts
+export const categories = ["All", "Tech", "Art", "Life", "Random", "NewCategory"] as const;
+```
+
+That's it — no routing changes needed. The post will automatically appear on `/blog` and be accessible at `/blog/my-new-post`.
+
+---
+
+## Customising Pages
+
+### Home (`src/pages/Index.tsx`)
+- Edit the heading, tagline, and bio text directly
+- Replace the profile image by swapping `src/assets/profile-illustration.png`
+- Modify CTA buttons (links, labels, icons)
+
+### Hobbies (`src/pages/Hobbies.tsx`)
+- Add/remove hobbies by editing the `hobbies` array
+- Each hobby has: `title`, `description`, and `image` (from `public/images/`)
+
+### Bookmarks (`src/pages/Bookmarks.tsx`)
+- Add/remove items in the `bookmarks` array
+- Each bookmark has: `title`, `description`, optional `url`, and `section` (`"Links"` | `"Books"` | `"Media"` | `"Tools"`)
+
+### Resume (`src/pages/Resume.tsx`)
+- Edit the `experience`, `education`, `skills`, and `interests` arrays directly in the file
+- Each experience entry has: `role`, `company`, `period`, `tags`, and `points`
+
+### Contact (`src/pages/Contact.tsx`)
+- Update the Formspree endpoint URL in `FORMSPREE_URL`
+- Edit social links in the `socials` array
+
+### Navigation (`src/components/Layout.tsx`)
+- Add or remove pages by editing the `navLinks` array
+- Don't forget to add a corresponding route in `src/App.tsx`
+
+---
+
+## Theming & Design System
+
+### Colours & Tokens
+All colours are defined as CSS custom properties in `src/index.css` using HSL values, with separate `:root` (light) and `.dark` blocks. Key tokens include:
+
+- `--background`, `--foreground` — base colours
+- `--primary`, `--primary-foreground` — accent colour
+- `--muted`, `--muted-foreground` — subdued text/backgrounds
+- `--border`, `--accent`, `--destructive` — UI elements
+
+### Font
+The site uses **Source Serif 4** (loaded via Google Fonts in `index.html`). To change it:
+1. Update the `<link>` tag in `index.html`
+2. Update `fontFamily.sans` in `tailwind.config.ts`
+
+### Dark Mode
+Managed by `src/hooks/use-theme.ts`. Toggles the `.dark` class on `<html>` and persists the preference to `localStorage`.
+
+---
+
+## Getting Started
 
 ```sh
-# Step 1: Clone the repository using the project's Git URL.
+# Clone the repository
 git clone <YOUR_GIT_URL>
-
-# Step 2: Navigate to the project directory.
 cd <YOUR_PROJECT_NAME>
 
-# Step 3: Install the necessary dependencies.
-npm i
+# Install dependencies
+npm install
 
-# Step 4: Start the development server with auto-reloading and an instant preview.
+# Start the dev server
 npm run dev
 ```
 
-**Edit a file directly in GitHub**
+The app runs at `http://localhost:8080` by default.
 
-- Navigate to the desired file(s).
-- Click the "Edit" button (pencil icon) at the top right of the file view.
-- Make your changes and commit the changes.
+### Other commands
 
-**Use GitHub Codespaces**
+| Command | Description |
+|---------|-------------|
+| `npm run build` | Production build |
+| `npm run preview` | Preview production build |
+| `npm run test` | Run tests |
+| `npm run lint` | Lint with ESLint |
 
-- Navigate to the main page of your repository.
-- Click on the "Code" button (green button) near the top right.
-- Select the "Codespaces" tab.
-- Click on "New codespace" to launch a new Codespace environment.
-- Edit files directly within the Codespace and commit and push your changes once you're done.
+---
 
-## What technologies are used for this project?
+## Tech Stack
 
-This project is built with:
-
-- Vite
-- TypeScript
-- React
-- shadcn-ui
-- Tailwind CSS
-
-## How can I deploy this project?
-
-Simply open [Lovable](https://lovable.dev/projects/REPLACE_WITH_PROJECT_ID) and click on Share -> Publish.
-
-## Can I connect a custom domain to my Lovable project?
-
-Yes, you can!
-
-To connect a domain, navigate to Project > Settings > Domains and click Connect Domain.
-
-Read more here: [Setting up a custom domain](https://docs.lovable.dev/features/custom-domain#custom-domain)
+- **React 18** + **TypeScript**
+- **Vite** — build tool & dev server
+- **Tailwind CSS** — utility-first styling
+- **shadcn/ui** — accessible UI components
+- **React Router** — client-side routing
+- **Formspree** — contact form backend
+- **Source Serif 4** — typography (Google Fonts)
