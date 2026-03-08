@@ -1,6 +1,8 @@
 import { Link } from "react-router-dom";
 import { ArrowRight, Mail } from "lucide-react";
 import profileIllustration from "@/assets/profile-illustration.png";
+import { useSeo } from "@/hooks/use-seo";
+
 
 const Index = () => {
   return (
