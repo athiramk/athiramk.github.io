@@ -41,18 +41,21 @@ const sideProjects = [
     description: "Generate beautiful, customizable QR codes for contacts and links — free and instant.",
     url: "https://athiramk.com/qr-code-crafter/",
     image: publicUrl("images/project-qr-code-crafter.png"),
+    imagePosition: "object-center" as const,
   },
   {
     title: "FocusLens",
     description: "Discover how long you can truly focus — then use it to work smarter, not harder.",
     url: "https://athiramk.com/focus-lens/",
     image: publicUrl("images/project-focus-lens.png"),
+    imagePosition: "object-top" as const,
   },
   {
     title: "BodyRhythm",
     description: "Decode what your body is saying — track moods, energy, cravings, and more based on your cycle.",
     url: "https://athiramk.com/body-rhythm/",
     image: publicUrl("images/project-body-rhythm.png"),
+    imagePosition: "object-top" as const,
   },
 ];
 
@@ -82,7 +85,7 @@ const Hobbies = () => {
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover object-top scale-125 group-hover:scale-[1.35] transition-transform duration-300"
+                  className={`w-full h-full object-cover scale-125 group-hover:scale-[1.35] transition-transform duration-300 ${project.imagePosition}`}
                 />
               </div>
               <div className="p-4 flex items-start justify-between gap-2">
