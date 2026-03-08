@@ -35,8 +35,8 @@ const Index = () => {
         </div>
       </div>
       <div className="flex-shrink-0">
-        <div className="w-40 h-40 md:w-48 md:h-48 rounded-full bg-muted border-2 border-border flex items-center justify-center text-muted-foreground text-sm">
-          Photo
+        <div className="w-40 h-40 md:w-48 md:h-48 rounded-full bg-muted border-2 border-border flex items-center justify-center overflow-hidden">
+          <img src={profileIllustration} alt="Athira Kamala illustration" className="w-full h-full object-cover" />
         </div>
       </div>
     </section>
