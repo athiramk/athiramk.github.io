@@ -22,7 +22,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-md">
         <nav className="mx-auto flex max-w-3xl items-center justify-between px-6 py-4">
           <Link to="/" className="text-lg font-semibold tracking-tight text-foreground hover:text-primary transition-colors">
-            Your Name
+            Athira Kamala
           </Link>
 
           {/* Desktop nav */}
