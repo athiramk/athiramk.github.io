@@ -95,7 +95,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
       <footer className="border-t border-border py-8">
         <div className="mx-auto max-w-3xl px-6 text-center text-sm text-muted-foreground">
-          © {new Date().getFullYear()} Your Name. All rights reserved.
+          © {new Date().getFullYear()} Athira Kamala. All rights reserved.
         </div>
       </footer>
     </div>
