@@ -10,6 +10,7 @@ import Hobbies from "./pages/Hobbies";
 import Links from "./pages/Links";
 import Resume from "./pages/Resume";
 import Contact from "./pages/Contact";
+import BlogPost from "./pages/BlogPost";
 import NotFound from "./pages/NotFound";
 
 const queryClient = new QueryClient();
@@ -24,6 +25,7 @@ const App = () => (
           <Routes>
             <Route path="/" element={<Index />} />
             <Route path="/blog" element={<Blog />} />
+            <Route path="/blog/:id" element={<BlogPost />} />
             <Route path="/hobbies" element={<Hobbies />} />
             <Route path="/links" element={<Links />} />
             <Route path="/resume" element={<Resume />} />
