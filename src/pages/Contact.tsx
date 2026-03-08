@@ -1,6 +1,6 @@
 import { useState } from "react";
 import { z } from "zod";
-import { Send, CheckCircle, Github, Linkedin, Twitter, Mail } from "lucide-react";
+import { Send, CheckCircle, Github, Linkedin } from "lucide-react";
 
 const contactSchema = z.object({
   name: z.string().trim().min(1, "Name is required").max(100, "Name must be under 100 characters"),
