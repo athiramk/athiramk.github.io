@@ -85,7 +85,7 @@ const Hobbies = () => {
                 <img
                   src={project.image}
                   alt={project.title}
-                  className="w-full h-full object-cover object-top scale-125 group-hover:scale-[1.35] transition-transform duration-300"
+                  className={`w-full h-full object-cover scale-125 group-hover:scale-[1.35] transition-transform duration-300 ${project.imagePosition}`}
                 />
               </div>
               <div className="p-4 flex items-start justify-between gap-2">
