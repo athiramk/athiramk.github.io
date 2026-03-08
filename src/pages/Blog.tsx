@@ -39,18 +39,29 @@ const Blog = () => {
           <Link
             key={post.id}
             to={`/blog/${post.id}`}
-            className="group block rounded-lg border border-border p-5 hover:border-primary/30 transition-colors"
+            className="group block rounded-lg border border-border overflow-hidden hover:border-primary/30 transition-colors"
           >
-            <span className="text-xs font-semibold uppercase tracking-wider text-primary">
-              {post.category}
-            </span>
-            <h3 className="mt-2 font-semibold text-foreground group-hover:text-primary transition-colors">
-              {post.title}
-            </h3>
-            <p className="mt-1.5 text-sm text-muted-foreground leading-relaxed line-clamp-3">
-              {post.excerpt}
-            </p>
-            <p className="mt-3 text-xs text-muted-foreground">{post.date}</p>
+            {post.image && (
+              <div className="aspect-video w-full overflow-hidden bg-muted">
+                <img
+                  src={post.image}
+                  alt={post.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
+              </div>
+            )}
+            <div className="p-5">
+              <span className="text-xs font-semibold uppercase tracking-wider text-primary">
+                {post.category}
+              </span>
+              <h3 className="mt-2 font-semibold text-foreground group-hover:text-primary transition-colors">
+                {post.title}
+              </h3>
+              <p className="mt-1.5 text-sm text-muted-foreground leading-relaxed line-clamp-3">
+                {post.excerpt}
+              </p>
+              <p className="mt-3 text-xs text-muted-foreground">{post.date}</p>
+            </div>
           </Link>
         ))}
       </div>
