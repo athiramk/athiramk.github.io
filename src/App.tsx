@@ -7,7 +7,7 @@ import Layout from "@/components/Layout";
 import Index from "./pages/Index";
 import Blog from "./pages/Blog";
 import Hobbies from "./pages/Hobbies";
-import Links from "./pages/Links";
+import Bookmarks from "./pages/Bookmarks";
 import Resume from "./pages/Resume";
 import Contact from "./pages/Contact";
 import BlogPost from "./pages/BlogPost";
