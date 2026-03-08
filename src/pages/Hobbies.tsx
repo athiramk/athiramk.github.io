@@ -76,16 +76,24 @@ const Hobbies = () => {
               href={project.url}
               target="_blank"
               rel="noopener noreferrer"
-              className="group rounded-lg border border-border p-5 hover:border-primary/30 transition-colors flex flex-col gap-3"
+              className="group rounded-lg border border-border overflow-hidden hover:border-primary/30 transition-colors flex flex-col"
             >
-              <div className="flex items-center justify-between">
-                <span className="text-3xl">{project.emoji}</span>
-                <ExternalLink className="w-4 h-4 text-muted-foreground opacity-0 group-hover:opacity-100 transition-opacity" />
+              <div className="aspect-video w-full overflow-hidden bg-muted">
+                <img
+                  src={project.image}
+                  alt={project.title}
+                  className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300"
+                />
               </div>
-              <h3 className="font-semibold text-foreground">{project.title}</h3>
-              <p className="text-sm text-muted-foreground leading-relaxed">
-                {project.description}
-              </p>
+              <div className="p-4 flex items-start justify-between gap-2">
+                <div>
+                  <h3 className="font-semibold text-foreground">{project.title}</h3>
+                  <p className="mt-1 text-sm text-muted-foreground leading-relaxed">
+                    {project.description}
+                  </p>
+                </div>
+                <ExternalLink className="w-4 h-4 text-muted-foreground flex-shrink-0 mt-1 opacity-0 group-hover:opacity-100 transition-opacity" />
+              </div>
             </a>
           ))}
         </div>
