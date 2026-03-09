@@ -2,13 +2,16 @@ import { Link } from "react-router-dom";
 import { ArrowRight, Mail } from "lucide-react";
 import profileIllustration from "@/assets/profile-illustration.png";
 import { useSeo } from "@/hooks/use-seo";
+import FunBanner from "@/components/FunBanner";
 
 
 const Index = () => {
   useSeo({ title: "Home", description: "Athira Kamala – Senior Software Developer specialising in Java, Spring Boot, Microservices, and Cloud. Based in Melbourne." });
 
   return (
-    <section className="flex flex-col-reverse md:flex-row items-center gap-10 md:gap-14 py-8">
+    <div>
+      <FunBanner />
+      <section className="flex flex-col-reverse md:flex-row items-center gap-10 md:gap-14 py-8">
       <div className="flex-1 space-y-5">
         <div>
           <h1 className="text-3xl md:text-4xl font-bold tracking-tight text-foreground">
@@ -44,6 +47,7 @@ const Index = () => {
         </div>
       </div>
     </section>
+    </div>
   );
 };
 
