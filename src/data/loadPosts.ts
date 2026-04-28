@@ -19,7 +19,6 @@ function parseFrontmatter(raw: string): { data: Record<string, string>, content:
 
 export const markdownPosts: BlogPost[] = Object.entries(modules).map(([, raw]) => {
   const { data, content } = parseFrontmatter(raw as string)
-  console.log('parsed frontmatter:', data) 
   return {
     id: data.id,
     title: data.title,
