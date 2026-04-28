@@ -1,0 +1,64 @@
+<svg width="100%" viewBox="0 0 680 380" xmlns="http://www.w3.org/2000/svg">
+
+  <defs>
+    <marker id="arrow" viewBox="0 0 10 10" refX="8" refY="5" markerWidth="6" markerHeight="6" orient="auto-start-reverse">
+      <path d="M2 1L8 5L2 9" fill="none" stroke="#888780" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+    </marker>
+  </defs>
+
+  <!-- Parent annotation box -->
+  <rect x="190" y="30" width="300" height="52" rx="8" fill="#E6F1FB" stroke="#185FA5" stroke-width="0.5"/>
+  <text font-family="Georgia, serif" font-weight="500" font-size="14" fill="#0C447C" x="340" y="52" text-anchor="middle" dominant-baseline="central">@SpringBootApplication</text>
+  <text font-family="Georgia, serif" font-size="12" fill="#185FA5" x="340" y="70" text-anchor="middle" dominant-baseline="central">one annotation, three responsibilities</text>
+
+  <!-- Bracket lines -->
+  <line x1="340" y1="82" x2="340" y2="108" stroke="#888780" stroke-width="0.5" opacity="0.4"/>
+  <line x1="120" y1="108" x2="560" y2="108" stroke="#888780" stroke-width="0.5" opacity="0.4"/>
+  <line x1="120" y1="108" x2="120" y2="128" stroke="#888780" stroke-width="0.5" opacity="0.4"/>
+  <line x1="340" y1="108" x2="340" y2="128" stroke="#888780" stroke-width="0.5" opacity="0.4"/>
+  <line x1="560" y1="108" x2="560" y2="128" stroke="#888780" stroke-width="0.5" opacity="0.4"/>
+
+  <!-- Child 1: @SpringBootConfiguration — teal -->
+  <rect x="44" y="128" width="152" height="52" rx="8" fill="#E1F5EE" stroke="#0F6E56" stroke-width="0.5"/>
+  <text font-family="Georgia, serif" font-weight="500" font-size="12" fill="#085041" x="120" y="148" text-anchor="middle" dominant-baseline="central">@SpringBoot</text>
+  <text font-family="Georgia, serif" font-weight="500" font-size="12" fill="#085041" x="120" y="163" text-anchor="middle" dominant-baseline="central">Configuration</text>
+
+  <!-- Child 2: @EnableAutoConfiguration — amber -->
+  <rect x="264" y="128" width="152" height="52" rx="8" fill="#FAEEDA" stroke="#854F0B" stroke-width="0.5"/>
+  <text font-family="Georgia, serif" font-weight="500" font-size="12" fill="#633806" x="340" y="148" text-anchor="middle" dominant-baseline="central">@EnableAuto</text>
+  <text font-family="Georgia, serif" font-weight="500" font-size="12" fill="#633806" x="340" y="163" text-anchor="middle" dominant-baseline="central">Configuration</text>
+
+  <!-- Child 3: @ComponentScan — purple -->
+  <rect x="484" y="128" width="152" height="52" rx="8" fill="#EEEDFE" stroke="#534AB7" stroke-width="0.5"/>
+  <text font-family="Georgia, serif" font-weight="500" font-size="12" fill="#3C3489" x="560" y="148" text-anchor="middle" dominant-baseline="central">@Component</text>
+  <text font-family="Georgia, serif" font-weight="500" font-size="12" fill="#3C3489" x="560" y="163" text-anchor="middle" dominant-baseline="central">Scan</text>
+
+  <!-- Callout dashed lines -->
+  <line x1="120" y1="180" x2="120" y2="222" stroke="#888780" stroke-width="0.5" stroke-dasharray="4 3" opacity="0.5"/>
+  <line x1="340" y1="180" x2="340" y2="222" stroke="#888780" stroke-width="0.5" stroke-dasharray="4 3" opacity="0.5"/>
+  <line x1="560" y1="180" x2="560" y2="222" stroke="#888780" stroke-width="0.5" stroke-dasharray="4 3" opacity="0.5"/>
+
+  <!-- Callout boxes -->
+  <rect x="44" y="222" width="152" height="66" rx="6" fill="none" stroke="#888780" stroke-width="0.5" opacity="0.3"/>
+  <rect x="264" y="222" width="152" height="66" rx="6" fill="none" stroke="#888780" stroke-width="0.5" opacity="0.3"/>
+  <rect x="484" y="222" width="152" height="66" rx="6" fill="none" stroke="#888780" stroke-width="0.5" opacity="0.3"/>
+
+  <!-- Callout text — teal -->
+  <text font-family="Georgia, serif" font-size="12" fill="#5F5E5A" x="120" y="242" text-anchor="middle">Marks this class as a</text>
+  <text font-family="Georgia, serif" font-size="12" fill="#5F5E5A" x="120" y="258" text-anchor="middle">Spring configuration</text>
+  <text font-family="Georgia, serif" font-size="12" fill="#5F5E5A" x="120" y="274" text-anchor="middle">source. Replaces</text>
+  <text font-family="Georgia, serif" font-size="12" fill="#5F5E5A" x="120" y="290" text-anchor="middle">@Configuration.</text>
+
+  <!-- Callout text — amber -->
+  <text font-family="Georgia, serif" font-size="12" fill="#5F5E5A" x="340" y="242" text-anchor="middle">Triggers auto-config.</text>
+  <text font-family="Georgia, serif" font-size="12" fill="#5F5E5A" x="340" y="258" text-anchor="middle">Spring reads the</text>
+  <text font-family="Georgia, serif" font-size="12" fill="#5F5E5A" x="340" y="274" text-anchor="middle">classpath and fills</text>
+  <text font-family="Georgia, serif" font-size="12" fill="#5F5E5A" x="340" y="290" text-anchor="middle">in what's missing.</text>
+
+  <!-- Callout text — purple -->
+  <text font-family="Georgia, serif" font-size="12" fill="#5F5E5A" x="560" y="242" text-anchor="middle">Scans the package</text>
+  <text font-family="Georgia, serif" font-size="12" fill="#5F5E5A" x="560" y="258" text-anchor="middle">for @Component,</text>
+  <text font-family="Georgia, serif" font-size="12" fill="#5F5E5A" x="560" y="274" text-anchor="middle">@Service, @Repo</text>
+  <text font-family="Georgia, serif" font-size="12" fill="#5F5E5A" x="560" y="290" text-anchor="middle">and registers them.</text>
+
+</svg>
