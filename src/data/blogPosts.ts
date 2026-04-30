@@ -8,7 +8,7 @@ export type BlogPost = {
   image?: string;
 };
 
-export const categories = ["All", "Tech", "Art", "Life", "Random"] as const;
+export const categories = ["All", "Tech", "Art", "Life", "Random", "Travel"] as const;
 
 import { markdownPosts } from './loadPosts';
 
