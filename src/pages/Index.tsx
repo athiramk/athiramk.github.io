@@ -15,7 +15,7 @@ const Index = () => {
             Hi, I'm <span className="text-primary">Athira</span>
           </h1>
           <p className="text-base text-muted-foreground mt-2 font-medium">
-            Software Developer · Designer · Creator
+            Software Engineer · Designer · Creator
           </p>
         </div>
         <p className="text-muted-foreground leading-relaxed">
