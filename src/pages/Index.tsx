@@ -5,7 +5,7 @@ import { useSeo } from "@/hooks/use-seo";
 
 
 const Index = () => {
-  useSeo({ title: "Home", description: "Athira Kamala – Senior Software Developer specialising in Java, Spring Boot, Microservices, and Cloud. Based in Melbourne." });
+  useSeo({ title: "Home", description: "Athira M Kamala – Senior Software Engineer specialising in Java, Spring Boot, Microservices, and Cloud. Based in Melbourne." });
 
   return (
     <section className="flex flex-col-reverse md:flex-row items-center gap-10 md:gap-14 py-8">
@@ -19,6 +19,8 @@ const Index = () => {
           </p>
         </div>
         <p className="text-muted-foreground leading-relaxed">
+          <i>My name is pronounced <span className="font-semibold">'Ah-thi-rah'</span> (with 'ah' as in 'far', a soft 'thi' as in 'think', and 'rah' as in 'raw'). </i>
+          <br /> <br />
           I build things on the web and enjoy turning ideas into clean, functional products. 
           Passionate about open source, creative coding, and continuous learning. 
           When I'm not at the keyboard, I'm probably reading, sketching, or exploring something new.

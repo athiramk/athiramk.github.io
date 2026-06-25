@@ -22,7 +22,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
       <header className="sticky top-0 z-50 border-b border-border bg-background/80 backdrop-blur-md">
         <nav className="mx-auto flex max-w-3xl items-center justify-between px-6 py-4">
           <Link to="/" className="text-lg font-semibold tracking-tight text-foreground hover:text-primary transition-colors">
-            Athira Kamala
+            Athira M Kamala
           </Link>
 
           {/* Desktop nav */}
@@ -95,7 +95,7 @@ export default function Layout({ children }: { children: React.ReactNode }) {
 
       <footer className="border-t border-border py-8">
         <div className="mx-auto max-w-3xl px-6 text-center text-sm text-muted-foreground">
-          © {new Date().getFullYear()} Athira Kamala. All rights reserved.
+          © {new Date().getFullYear()} Athira M Kamala. All rights reserved.
         </div>
       </footer>
     </div>

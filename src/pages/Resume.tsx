@@ -3,39 +3,25 @@ import { useSeo } from "@/hooks/use-seo";
 
 const experience = [
   {
-    role: "Senior Software Developer",
-    company: "IAG (through Infosys)",
-    period: "Jun 2022 — Aug 2025 · Melbourne",
+    role: "Software Engineer",
+    company: "Insurance Australia Group (IAG)",
+    period: "Jun 2022 — Aug 2025",
     tags: ["Java", "Spring", "RESTful API", "CI/CD", "DevOps"],
-    summary: "Built and maintained backend services for a customer-facing insurance platform. Owned RESTful API integrations for real-time data sync with partner systems, set up CI/CD pipelines that cut deployment time by 40%, and drove security improvements through vulnerability scanning. Also mentored developers and led technical debt reduction efforts.",
-  },
-  {
-    role: "Technology Lead",
-    company: "Telstra (through Infosys)",
-    period: "Oct 2021 — Jun 2022 · India",
-    tags: ["Java", "Spring", "Microservices", "New Relic", "NoSQL"],
-    summary: "Designed a cloud-native, event-driven microservices system for diagnosing faults in customer networks, significantly reducing resolution time. Built observability dashboards in New Relic and mentored engineers while modernising legacy backends with Spring Boot and Hibernate.",
-  },
-  {
-    role: "Technology Analyst",
-    company: "Telstra (through Infosys)",
-    period: "Oct 2017 — Sep 2021 · Melbourne: Oct 2018 – Aug 2019",
-    tags: ["C++", "Perl", "Python", "SQL"],
-    summary: "Architected and maintained Netcool/OMNIbus infrastructure for large-scale network monitoring. Developed custom probe rules to parse events from multi-vendor devices (Cisco, Ericsson, Alcatel), designed operational dashboards for network operation centres, and managed platform performance tuning on Solaris/Linux.",
+    summary: "Developed backend APIs for an insurance Quote & Buy platform, modernised legacy systems to close security gaps, and implemented CI/CD pipelines to speed up releases. Led BAU operations as stakeholder anchor for a year, mentored developers, and drove technical debt reduction across the team.",
   },
   {
     role: "Senior Systems Engineer",
-    company: "Telstra (through Infosys)",
-    period: "Oct 2015 — Sep 2017 · India",
-    tags: ["C++", "Perl", "Python", "SQL", "Splunk"],
-    summary: "Configured Netcool/Impact policies for automated event enrichment and ticketing. Integrated monitoring with Remedy ARS for bidirectional ticket sync and enhanced application observability using Splunk.",
+    company: "Telstra",
+    period: "Oct 2017 — Jun 2022",
+    tags: ["Java", "Spring", "Microservices", "New Relic", "NoSQL"],
+    summary: "Designed and built a web application for monitoring network device faults (routers and modems) using multithreading for efficient concurrent processing. Led a lift-and-shift migration of a legacy system to address infrastructure security vulnerabilities, ensuring compatibility and framework upgrades with minimal application disruption. Architected Netcool/OMNIbus solutions, including high-availability object servers and custom probe rules to parse SNMP and Syslog events from Cisco, Ericsson, and Alcatel devices. Designed custom Web GUI dashboards to improve alarm visibility for network operations centres, while managing ObjectServer performance tuning, platform maintenance on Solaris/Linux, and stakeholder priorities for ongoing feature and maintenance requests.",
   },
   {
     role: "Systems Engineer",
-    company: "Telstra (through Infosys)",
-    period: "Sep 2013 — Sep 2015 · India",
-    tags: ["C++", "Perl", "Shell", "SQL"],
-    summary: "Installed, configured, and upgraded Netcool monitoring products. Wrote SQL triggers and procedures for event processing and provided 24/7 on-call support for network monitoring solutions.",
+    company: "Telstra",
+    period: "Feb 2014 — Sep 2017",
+    tags: ["C++", "Perl", "Python", "SQL"],
+    summary: "Configured Netcool/Impact policies for event enrichment, deduplication, and automated ticketing, and contributed to integrating Netcool event streams with Kafka via gateway components for producer-side event publishing. Enhanced application monitoring and logging using Splunk, and developed SQL triggers and procedures in OMNIbus to enhance, suppress, or reroute incoming events. Installed, configured, and upgraded Netcool products (OMNIbus, Web GUI, Impact), while providing 24/7 on-call support for network monitoring solutions.",
   },
 ];
 
