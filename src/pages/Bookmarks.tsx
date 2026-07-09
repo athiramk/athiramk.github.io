@@ -19,8 +19,8 @@ const bookmarks: Bookmark[] = [
   { title: "Bartosz Ciechanowski's Blog", description: "Interactive articles explaining complex topics like GPS, cameras, and mechanical watches.", url: "https://ciechanow.ski", section: "Links" },
 
   // Books
+  { title: "Mother Mary Comes to me - Arundhati Roy", description: "A powerful novel about the complexities of love, loss, and identity in post-colonial India.", section: "Books" },
   { title: "Atomic Habits — James Clear", description: "A practical framework for building good habits and breaking bad ones. Changed how I think about systems.", section: "Books" },
-  { title: "The Design of Everyday Things — Don Norman", description: "A classic on usability and human-centered design. Made me see the world differently.", section: "Books" },
   { title: "Sapiens — Yuval Noah Harari", description: "A sweeping history of humankind that connects biology, culture, and technology.", section: "Books" },
   { title: "Show Your Work! — Austin Kleon", description: "A short, inspiring read about sharing your creative process and building an audience.", section: "Books" },
 
