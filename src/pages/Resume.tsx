@@ -3,7 +3,7 @@ import { useSeo } from "@/hooks/use-seo";
 
 const experience = [
   {
-    role: "Software Engineer",
+    role: "Senior Software Engineer",
     company: "Insurance Australia Group (IAG)",
     period: "Jun 2022 — Aug 2025",
     tags: ["Java", "Spring", "RESTful API", "CI/CD", "DevOps"],
