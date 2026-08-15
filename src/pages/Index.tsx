@@ -19,11 +19,11 @@ const Index = () => {
           </p>
         </div>
         <p className="text-muted-foreground leading-relaxed">
-          <i>My name is pronounced <span className="font-semibold">'Ah-thi-rah'</span> (with 'ah' as in 'far', a soft 'thi' as in 'think', and 'rah' as in 'raw'). </i>
-          <br /> <br />
           I build things on the web and enjoy turning ideas into clean, functional products. 
           Passionate about open source, creative coding, and continuous learning. 
           When I'm not at the keyboard, I'm probably reading, sketching, or exploring something new.
+          <br /> <br />
+          <i><span className="mt-1 text-sm text-muted-foreground">My name is pronounced <b>'Ah-thi-rah' </b>(with 'ah' as in 'far', a soft 'thi' as in 'think', and 'rah' as in 'raw').</span> </i>
         </p>
         <div className="flex gap-3 pt-1">
           <Link
