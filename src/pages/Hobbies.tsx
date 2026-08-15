@@ -37,6 +37,13 @@ const hobbies = [
 
 const sideProjects = [
   {
+    title: "Alappuzha Walking Trails",
+    description: "Explore the scenic walking trails of Alappuzha with this interactive guide.",
+    url: "https://alappuzha-trails-quest.vercel.app/",
+    //image: publicUrl("images/project-alappuzha-walking-trails.png"),
+    imagePosition: "object-center" as const,
+  },
+  {
     title: "QR Code Crafter",
     description: "Generate beautiful, customizable QR codes for contacts and links — free and instant.",
     url: "https://athiramk.com/qr-code-crafter/",

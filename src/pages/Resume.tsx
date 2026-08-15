@@ -6,22 +6,22 @@ const experience = [
     role: "Senior Software Engineer",
     company: "Insurance Australia Group (IAG)",
     period: "Jun 2022 — Aug 2025",
-    tags: ["Java", "Spring", "RESTful API", "CI/CD", "DevOps"],
-    summary: "Developed backend APIs for an insurance Quote & Buy platform, modernised legacy systems to close security gaps, and implemented CI/CD pipelines to speed up releases. Led BAU operations as stakeholder anchor for a year, mentored developers, and drove technical debt reduction across the team.",
+    tags: ["Java", "Spring Boot", "RESTful API", "CI/CD", "Microservices", "AWS", "Kubernetes"],
+    summary: "Engineered distributed backend services and partner-facing REST APIs for high-volume insurance Quote & Buy platforms. Streamlined delivery through CI/CD pipeline automation and provided 12+ months of technical leadership as BAU Anchor, translating complex business requirements into scalable code, driving issue resolution, and mentoring engineering teams.",
   },
   {
-    role: "Senior Systems Engineer",
+    role: "Software Engineer",
     company: "Telstra",
     period: "Oct 2017 — Jun 2022",
-    tags: ["Java", "Spring", "Microservices", "New Relic", "NoSQL"],
-    summary: "Designed and built a web application for monitoring network device faults (routers and modems) using multithreading for efficient concurrent processing. Led a lift-and-shift migration of a legacy system to address infrastructure security vulnerabilities, ensuring compatibility and framework upgrades with minimal application disruption. Architected Netcool/OMNIbus solutions, including high-availability object servers and custom probe rules to parse SNMP and Syslog events from Cisco, Ericsson, and Alcatel devices. Designed custom Web GUI dashboards to improve alarm visibility for network operations centres, while managing ObjectServer performance tuning, platform maintenance on Solaris/Linux, and stakeholder priorities for ongoing feature and maintenance requests.",
+    tags: ["Java", "Spring Boot", "Event-Driven Architecture", "Multithreading"],
+    summary: "Engineered high-scale network monitoring and event processing systems to improve network visibility, reduce operational noise, and proactively prevent outages. Modernized critical legacy infrastructure to eliminate security vulnerabilities and led stakeholder alignment to balance technical risk with feature delivery.",
   },
   {
     role: "Systems Engineer",
     company: "Telstra",
     period: "Feb 2014 — Sep 2017",
     tags: ["C++", "Perl", "Python", "SQL"],
-    summary: "Configured Netcool/Impact policies for event enrichment, deduplication, and automated ticketing, and contributed to integrating Netcool event streams with Kafka via gateway components for producer-side event publishing. Enhanced application monitoring and logging using Splunk, and developed SQL triggers and procedures in OMNIbus to enhance, suppress, or reroute incoming events. Installed, configured, and upgraded Netcool products (OMNIbus, Web GUI, Impact), while providing 24/7 on-call support for network monitoring solutions.",
+    summary: "Maintained enterprise-scale IBM Netcool environments to optimize network fault management. Built automated event enrichment, correlation, and suppression policies to streamline alarm quality, automate ticketing, and ensure high availability through 24/7 incident response.",
   },
 ];
 
@@ -73,11 +73,9 @@ const Resume = () => {
           <p className="text-muted-foreground mt-1">A summary of my experience, education, and skills.</p>
         </div>
         <a
-          href="/resume.pdf"
-          download
+          href="/contact"
           className="inline-flex items-center gap-2 rounded-md bg-primary px-4 py-2 text-sm font-medium text-primary-foreground hover:opacity-90 transition-opacity self-start"
-        >
-          <Download size={16} /> Download PDF
+        > Contact Me
         </a>
       </div>
 
