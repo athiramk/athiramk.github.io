@@ -44,15 +44,34 @@ const BlogPost = () => {
         </h1>
         <p className="mt-1 text-sm text-muted-foreground">{post.date}</p>
       </div>
+      {/* {post.image && (
+        <div className="flex justify-center w-full">
+          <div className={`w-full max-w-md overflow-hidden rounded-lg bg-muted ${post.image.endsWith('.svg') ? 'p-6' : ''}`}>
+            <img 
+              src={post.image} 
+              alt={post.title} 
+              className="w-full h-auto object-contain" 
+            />
+          </div>
+        </div>
+      )} */}
+
       {post.image && (
-      <div className={`w-full overflow-hidden rounded-lg bg-muted flex items-center justify-center ${post.image.endsWith('.svg') ? 'p-6' : ''}`}>
-        <img
-          src={post.image}
-          alt={post.title}
-          className={`w-full ${post.image.endsWith('.svg') ? 'object-contain' : 'object-cover'}`}
-        />
+      <div className="flex flex-col items-center w-full space-y-2">
+        <div className={`w-full max-w-md overflow-hidden rounded-lg bg-muted ${post.image.endsWith('.svg') ? 'p-6' : ''}`}>
+          <img 
+            src={post.image} 
+            alt={post.imageAlt || post.title} // Falls back to title if alt is missing
+            className="w-full h-auto object-contain" 
+          />
+        </div>
+        {post.imageAlt && (
+          <p className="text-center text-xs text-muted-foreground italic max-w-md">
+            {post.imageAlt}
+          </p>
+        )}
       </div>
-      )}
+    )}
       <div
         className="prose prose-neutral dark:prose-invert max-w-none
           prose-headings:text-foreground
