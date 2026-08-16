@@ -1,0 +1,15 @@
+---
+id: positive-attitude
+title: Positive Attitude
+category: Life
+date: August 16, 2026
+image: /images/celeriac.jpg
+imageAlt: Celeriac on watercolour
+---
+How can a day be more beautiful than this? It is hard to tell what has actually made me think that way - it could be the flowers that he bought from the markets, or finding the winter melon that I thought I could never find here for making Olan or is it the painting of celeriac that I have done to cherish the first time of seeing one or is it the handmade doll which I bought from Vinnies for my grandmother. Maybe it is the sum of all of it.
+
+While trimming the stems of the dark purple Dutch Iris, I was thinkng of the importance of having a positive mental attitude. In my opinion, no matter whatever you have achieved in life, if you dont have a positive attitude you could never feel rich. You know, I am talking here about all kinds of richness, not just financial. Last time on the call to my mom, I had to remind her that there are both positive and negative sides to everything that is happening in our life and as an individual, it is our responsibility to look for the positive side of it. I was talking to her about my sister's new job at a national level institute as a researcher and she was feeling worried as my sister is also moving away from home. If we look at the positive side of it, considering the unemployement rate and other corruption factors of India, it is very hard to get a job and we all know the hardwork she has put on in finding a new job. And more that that, I feel there is no better place in India than NDRI, she can research on her subjects.
+
+Actually today marks the first anniversary of my career break, on one side there is the uncertainity in the whole IT industry as many companies are laying off their employees, getting back to a new job is hard. If I look from another perspective, I was continuously working for the last twelve years and I felt it is essential to give myself a break for all the things I have achieved. Last year, when my contract with IAG finished, I could go back to India and continue working with Infosys on another project or resign from my job and wait here for my PR grant. I chose to resign and have a break instead of going back and pick a new project and leave it midway when PR arrives. It was a crazy time in IT (and I believe still it is). All were confused of the uncertainty, feeling burned out by the over productivity, and the feeling of being distant from the work that you have produced. And yes, most of it are the effects of the changing landscape in IT by AI, and it takes a bit of time to settle down. So if I look from the positive lens, I could protect myself from some of it. 
+
+When I look at myself now, I feel very motivated about work than ever before. And it is a great evidence that this break was much needed. Even though I am being a bit picky, I eagerly looking forward for my next endeavour.

@@ -26,6 +26,7 @@ export const markdownPosts: BlogPost[] = Object.entries(modules).map(([, raw]) =
     category: data.category,
     date: data.date,
     image: data.image,
+    imageAlt: data.imageAlt,
     content
   }
 })

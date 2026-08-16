@@ -6,6 +6,7 @@ export type BlogPost = {
   date: string;
   content: string;
   image?: string;
+  imageAlt?: string; // Optional alt text for the image
 };
 
 export const categories = ["All", "Tech", "Art", "Life", "Random", "Travel"] as const;
