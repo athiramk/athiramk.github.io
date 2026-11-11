@@ -12,6 +12,7 @@ import { hobbies } from "../data/hobbies";
         <Image src={h.image} alt={h.alt} widths={[320, 640]} sizes="320px" loading="lazy" style="object-position:center" />
         <h3>{h.title}</h3>
         <p>{h.description}</p>
+        {h.link && <p><a href={h.link.href}>{h.link.label} →</a></p>}
       </div>
     ))}
   </div>

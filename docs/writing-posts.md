@@ -196,6 +196,12 @@ post. Nothing needs maintaining: it is rebuilt from your markdown files on every
 - **A cover image isn't found.** The path is relative to the post file, so it should start with
   `../../assets/blog/`.
 
+## Watercolour gallery
+
+The watercolour gallery is a separate project with its own repository (`watercolour`), published at
+https://athiramk.com/watercolour/. This site only links to it (a "See the gallery" link on the Hobbies
+page). To add a painting, work in that repository and follow its README.
+
 ## Deployment note
 
 `.github/workflows/deploy.yml` deploys from the `main` branch. The Astro revamp was built on the `index-update`
