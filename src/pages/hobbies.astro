@@ -1,0 +1,18 @@
+---
+import { Image } from "astro:assets";
+import Base from "../layouts/Base.astro";
+import { hobbies } from "../data/hobbies";
+---
+<Base title="Hobbies" description="What Athira Kamala does away from the keyboard.">
+  <div class="eyebrow">hobbies</div>
+  <h1>Away from the <b>keyboard</b></h1>
+  <div class="grid">
+    {hobbies.map((h) => (
+      <div class="card">
+        <Image src={h.image} alt={h.alt} widths={[320, 640]} sizes="320px" loading="lazy" style="object-position:center" />
+        <h3>{h.title}</h3>
+        <p>{h.description}</p>
+      </div>
+    ))}
+  </div>
+</Base>

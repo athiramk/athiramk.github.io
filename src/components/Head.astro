@@ -1,0 +1,57 @@
+---
+import { SITE } from "../data/site";
+import ogDefault from "../assets/profile.jpg";
+import { getImage } from "astro:assets";
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: ImageMetadata;
+  type?: "website" | "article";
+  date?: Date;
+}
+const { title, description = SITE.description, image, type = "website", date } = Astro.props;
+
+const fullTitle = title ? `${title} · ${SITE.name}` : `${SITE.name} – ${SITE.title}`;
+const canonical = new URL(Astro.url.pathname, Astro.site).href;
+const og = await getImage({ src: image ?? ogDefault, width: 1200, format: "jpg" });
+const ogUrl = new URL(og.src, Astro.site).href;
+const jsonLd =
+  type === "article"
+    ? {
+        "@context": "https://schema.org", "@type": "BlogPosting", headline: title, description,
+        datePublished: date?.toISOString(), image: ogUrl, author: { "@type": "Person", name: SITE.name, url: SITE.url },
+      }
+    : {
+        "@context": "https://schema.org", "@type": "Person", name: SITE.name, url: SITE.url, jobTitle: SITE.title,
+        sameAs: [SITE.linkedin, SITE.github],
+        knowsAbout: ["Java", "Spring Boot", "Microservices", "AWS", "Kubernetes", "Docker"],
+      };
+---
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>{fullTitle}</title>
+<meta name="description" content={description} />
+<meta name="author" content={SITE.name} />
+<link rel="canonical" href={canonical} />
+<link rel="icon" href="/favicon.png" type="image/png" />
+<link rel="alternate" type="application/rss+xml" title={SITE.name} href="/rss.xml" />
+<meta property="og:title" content={fullTitle} />
+<meta property="og:description" content={description} />
+<meta property="og:type" content={type} />
+<meta property="og:url" content={canonical} />
+<meta property="og:image" content={ogUrl} />
+<meta name="twitter:card" content="summary" />
+<meta name="twitter:title" content={fullTitle} />
+<meta name="twitter:description" content={description} />
+<meta name="twitter:image" content={ogUrl} />
+<script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+<script is:inline>
+  (function () {
+    try {
+      var t = localStorage.getItem("theme");
+      if (!t) t = matchMedia("(prefers-color-scheme: dark)").matches ? "dark" : "light";
+      document.documentElement.dataset.theme = t;
+    } catch (e) {}
+  })();
+</script>

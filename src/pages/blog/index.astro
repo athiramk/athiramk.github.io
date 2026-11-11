@@ -1,0 +1,17 @@
+---
+import Base from "../../layouts/Base.astro";
+import PostList from "../../components/PostList.astro";
+import { getPosts, allTags } from "../../lib/posts";
+const posts = await getPosts();
+const tags = allTags(posts);
+---
+<Base title="Blog" description="Posts on backend engineering, databases, resilience and life.">
+  <div class="eyebrow">blog</div>
+  <h1>All posts</h1>
+  <p class="sub">Backend engineering, databases, and the occasional personal note.</p>
+  <nav class="filters" aria-label="Filter by tag">
+    <a href="/blog" aria-current="page">all</a>
+    {tags.map((t) => <a href={`/blog/tag/${t}`}>{t}</a>)}
+  </nav>
+  <PostList posts={posts} />
+</Base>

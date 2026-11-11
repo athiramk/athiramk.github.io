@@ -1,0 +1,13 @@
+---
+import { formatDate, readingTime, type Post } from "../lib/posts";
+interface Props { posts: Post[] }
+const { posts } = Astro.props;
+---
+{posts.map((p) => (
+  <a class="post" href={`/blog/${p.id}`}>
+    <span class="meta">{formatDate(p.data.date)} · {readingTime(p.body)} min read{p.data.draft ? " · DRAFT" : ""}</span>
+    <b>{p.data.title}</b>
+    <span class="s">{p.data.summary}</span>
+    {p.data.tags.map((t) => <span class="tag">{t}</span>)}
+  </a>
+))}

@@ -1,0 +1,22 @@
+---
+import Base from "../layouts/Base.astro";
+import { bookmarks } from "../data/bookmarks";
+const sections = ["Links", "Books", "Media", "Tools"] as const;
+---
+<Base title="Bookmarks" description="Curated links, books, talks and tools recommended by Athira Kamala.">
+  <div class="eyebrow">bookmarks</div>
+  <h1>Things worth <b>keeping</b></h1>
+  <p class="sub">Links, books, talks and tools that have inspired me.</p>
+  {sections.map((s) => (
+    <>
+      <h2>{s}</h2>
+      {bookmarks.filter((b) => b.section === s).map((b) =>
+        b.url ? (
+          <a class="bm" href={b.url} rel="noopener"><b>{b.title}</b><span>{b.description}</span></a>
+        ) : (
+          <div class="bm"><b>{b.title}</b><span>{b.description}</span></div>
+        )
+      )}
+    </>
+  ))}
+</Base>

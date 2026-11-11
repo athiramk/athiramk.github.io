@@ -1,0 +1,21 @@
+---
+import { Image } from "astro:assets";
+import Base from "../layouts/Base.astro";
+import { projects } from "../data/projects";
+---
+<Base title="Projects" description="Small web apps and tools built by Athira Kamala.">
+  <div class="eyebrow">projects</div>
+  <h1>Things I've <b>built</b></h1>
+  <p class="sub">Small tools I made for fun and to learn.</p>
+  <div class="grid">
+    {projects.map((p) => (
+      <div class="card">
+        {p.image && <Image src={p.image} alt={`Screenshot of ${p.title}`} widths={[320, 640]} sizes="320px" loading="lazy" />}
+        <h3>{p.title}</h3>
+        <p>{p.description}</p>
+        {p.tags.map((t) => <span class="tag">{t}</span>)}
+        <div class="links"><a href={p.url} rel="noopener">Open ↗<span class="sr-only"> {p.title} (opens in a new tab)</span></a></div>
+      </div>
+    ))}
+  </div>
+</Base>

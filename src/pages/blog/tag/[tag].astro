@@ -1,0 +1,24 @@
+---
+import Base from "../../../layouts/Base.astro";
+import PostList from "../../../components/PostList.astro";
+import { getPosts, allTags } from "../../../lib/posts";
+
+export async function getStaticPaths() {
+  const posts = await getPosts();
+  return allTags(posts).map((tag) => ({
+    params: { tag },
+    props: { posts: posts.filter((p) => p.data.tags.includes(tag)), tags: allTags(posts) },
+  }));
+}
+const { tag } = Astro.params;
+const { posts, tags } = Astro.props;
+---
+<Base title={`Posts tagged ${tag}`} description={`Blog posts tagged ${tag}.`}>
+  <div class="eyebrow">blog / tag</div>
+  <h1>#{tag}</h1>
+  <nav class="filters" aria-label="Filter by tag">
+    <a href="/blog">all</a>
+    {tags.map((t) => <a href={`/blog/tag/${t}`} aria-current={t === tag ? "page" : undefined}>{t}</a>)}
+  </nav>
+  <PostList posts={posts} />
+</Base>
