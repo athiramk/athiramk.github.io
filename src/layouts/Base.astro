@@ -16,6 +16,7 @@ const props = Astro.props;
 const path = Astro.url.pathname.replace(/\/$/, "") || "/";
 const is = (p: string) => (p === "/" ? path === "/" : path === p || path.startsWith(p + "/"));
 const cur = (p: string) => (is(p) ? "page" : undefined);
+const analytics = import.meta.env.PROD && SITE.goatcounter; // counted on the live site only, not in `npm run dev`
 const posts = await getPosts();
 const tags = allTags(posts);
 ---
@@ -63,6 +64,9 @@ const tags = allTags(posts);
         </footer>
       </main>
     </div>
+    {analytics && (
+      <script is:inline async data-goatcounter={`https://${SITE.goatcounter}.goatcounter.com/count`} src="//gc.zgo.at/count.js"></script>
+    )}
     <script is:inline>
       document.getElementById("theme").addEventListener("click", function () {
         var r = document.documentElement;

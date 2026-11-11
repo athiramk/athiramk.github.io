@@ -150,6 +150,20 @@ time `src/lib/og.ts` draws a 1200×630 card from the post's `title`, `summary` a
 frontmatter fields and the card updates on the next deploy. Drafts get no card until they are published. Pages that
 aren't posts share `/og/default.png`. A `cover` image is only shown on the post page itself, not on the share card.
 
+## Analytics (GoatCounter)
+
+The site can count page views with [GoatCounter](https://www.goatcounter.com), which uses no cookies and doesn't track
+visitors across sites, so no cookie banner is needed. It is switched on by one setting in `src/data/site.ts`:
+
+```ts
+goatcounter: "yourcode",   // the "yourcode" in https://yourcode.goatcounter.com
+```
+
+Leave it as `""` to switch analytics off. When it has a value, every page on the live site loads GoatCounter's small
+script (nothing visible changes on the page). Visits while running `npm run dev` are never
+counted. Your dashboard is at `https://yourcode.goatcounter.com` and shows page views per post, where visitors came
+from, countries and devices.
+
 ## How tags work
 
 - Each post lists its tags in frontmatter.
