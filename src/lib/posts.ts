@@ -16,6 +16,11 @@ export function formatDate(d: Date): string {
   return d.toISOString().slice(0, 10);
 }
 
+/** The "last updated" date, only when it is later than the publish date. */
+export function updatedDate(data: { date: Date; updated?: Date }): Date | undefined {
+  return data.updated && formatDate(data.updated) > formatDate(data.date) ? data.updated : undefined;
+}
+
 export function allTags(posts: Post[]): string[] {
   return [...new Set(posts.flatMap((p) => p.data.tags))].sort();
 }

@@ -135,3 +135,46 @@ footer.site a { margin-right: 14px; }
 .bm:hover b { color: var(--acc); }
 .bm span { color: var(--mute); font-size: 15px; }
 .sr-only { position: absolute; width: 1px; height: 1px; overflow: hidden; clip: rect(0 0 0 0); white-space: nowrap; }
+
+/* callouts: > [!NOTE] / [!TIP] / [!IMPORTANT] / [!WARNING] / [!CAUTION] */
+.prose .markdown-alert {
+  --ca: #2f6fdb;
+  border: 1px solid color-mix(in srgb, var(--ca) 35%, var(--line));
+  border-left: 4px solid var(--ca);
+  background: color-mix(in srgb, var(--ca) 8%, var(--bg));
+  border-radius: 0 10px 10px 0;
+  padding: 12px 18px;
+  margin: 26px 0;
+  font-size: 16px;
+}
+.prose .markdown-alert > :last-child { margin-bottom: 0; }
+.prose .markdown-alert-tip { --ca: #1a8a4a; }
+.prose .markdown-alert-important { --ca: #8250df; }
+.prose .markdown-alert-warning { --ca: #b7791f; }
+.prose .markdown-alert-caution { --ca: #d1342f; }
+:root[data-theme="dark"] .prose .markdown-alert { --ca: #6da4ff; }
+:root[data-theme="dark"] .prose .markdown-alert-tip { --ca: #4cc77d; }
+:root[data-theme="dark"] .prose .markdown-alert-important { --ca: #b392f5; }
+:root[data-theme="dark"] .prose .markdown-alert-warning { --ca: #e0a43a; }
+:root[data-theme="dark"] .prose .markdown-alert-caution { --ca: #ff7b72; }
+.prose .markdown-alert-title { display: flex; align-items: center; gap: 8px; margin: 0 0 6px; font-weight: 700; font-size: 14px; letter-spacing: .04em; text-transform: uppercase; color: var(--ca); }
+.prose .markdown-alert-title svg { fill: currentColor; flex: none; }
+
+/* mermaid diagrams */
+.mermaid-diagram { margin: 28px 0; display: flex; justify-content: center; overflow-x: auto; padding: 18px 12px; border: 1px solid var(--line); border-radius: 12px; background: var(--card); }
+.mermaid-diagram svg { max-width: 100%; height: auto; }
+.mermaid-diagram pre { margin: 0; width: 100%; }
+.mermaid-diagram .edgeLabel, .mermaid-diagram .edgeLabel p, .mermaid-diagram .labelBkg { background-color: var(--card) !important; }
+.mermaid-diagram .edgeLabel rect { fill: var(--card) !important; opacity: 1; }
+
+/* footnotes: text[^1] ... [^1]: the note */
+.prose sup { line-height: 0; }
+.prose sup a, .prose a[data-footnote-backref] { text-decoration: none; }
+.prose sup a { font-size: .8em; font-weight: 700; padding: 0 2px; }
+.prose [id^="user-content-fn"], .prose [id^="user-content-fnref"] { scroll-margin-top: 80px; }
+.prose section.footnotes { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--line); font-size: 15px; color: var(--mute); }
+.prose section.footnotes h2 { position: static; width: auto; height: auto; clip: auto; overflow: visible; white-space: normal; margin: 0 0 8px; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; font-weight: 700; color: var(--mute); }
+.prose section.footnotes ol { padding-left: 22px; margin: 0; }
+.prose section.footnotes li { margin-bottom: .5em; }
+.prose section.footnotes li p { margin: 0; display: inline; }
+.prose section.footnotes li:target { background: var(--soft); border-radius: 6px; }

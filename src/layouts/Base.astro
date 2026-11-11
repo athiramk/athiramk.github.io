@@ -7,14 +7,16 @@ import { getPosts, allTags } from "../lib/posts";
 interface Props {
   title?: string;
   description?: string;
-  image?: ImageMetadata;
+  ogSlug?: string;
   type?: "website" | "article";
   date?: Date;
+  modified?: Date;
 }
 const props = Astro.props;
 const path = Astro.url.pathname.replace(/\/$/, "") || "/";
 const is = (p: string) => (p === "/" ? path === "/" : path === p || path.startsWith(p + "/"));
 const cur = (p: string) => (is(p) ? "page" : undefined);
+const analytics = import.meta.env.PROD && SITE.goatcounter; // counted on the live site only, not in `npm run dev`
 const posts = await getPosts();
 const tags = allTags(posts);
 ---
@@ -62,6 +64,9 @@ const tags = allTags(posts);
         </footer>
       </main>
     </div>
+    {analytics && (
+      <script is:inline async data-goatcounter={`https://${SITE.goatcounter}.goatcounter.com/count`} src="//gc.zgo.at/count.js"></script>
+    )}
     <script is:inline>
       document.getElementById("theme").addEventListener("click", function () {
         var r = document.documentElement;
@@ -74,6 +79,43 @@ const tags = allTags(posts);
         var open = s.classList.toggle("open");
         m.setAttribute("aria-expanded", open);
       });
+    </script>
+    <script>
+      // Draw ```mermaid code blocks as diagrams. The library is only downloaded on pages that have one.
+      const blocks = document.querySelectorAll<HTMLElement>("pre > code.language-mermaid");
+      if (blocks.length) {
+        const diagrams = [...blocks].map((code) => {
+          const el = document.createElement("div");
+          el.className = "mermaid-diagram";
+          el.dataset.source = code.textContent ?? "";
+          code.parentElement!.replaceWith(el);
+          return el;
+        });
+        const { default: mermaid } = await import("mermaid");
+        let run = 0;
+        const render = async () => {
+          const dark = document.documentElement.dataset.theme === "dark";
+          mermaid.initialize({
+            startOnLoad: false,
+            securityLevel: "strict",
+            theme: dark ? "dark" : "neutral",
+            fontFamily: '"Manrope Variable", system-ui, sans-serif',
+          });
+          for (const el of diagrams) {
+            try {
+              const { svg } = await mermaid.render(`mmd-${run++}`, el.dataset.source ?? "");
+              el.innerHTML = svg;
+            } catch {
+              const pre = document.createElement("pre");
+              pre.textContent = el.dataset.source ?? "";
+              el.replaceChildren(pre);
+            }
+          }
+        };
+        await render();
+        // redraw in matching colours when the theme toggle is used
+        new MutationObserver(render).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+      }
     </script>
   </body>
 </html>

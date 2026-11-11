@@ -40,6 +40,7 @@ Add any `.md` file to `src/content/blog/`. The filename becomes the URL, so `cir
 | `tags` | no | A list such as `[java, concurrency]`. Keep tags lowercase. They create the sidebar links. |
 | `cover` | no | A cover image path, e.g. `../../assets/blog/pic.jpg`. Put the image in `src/assets/blog/` first. |
 | `coverAlt` | no | Alt text describing the cover image. Always fill this in if you set `cover`. |
+| `updated` | no | Date you last revised the post (`YYYY-MM-DD`). Shows "Updated …" next to the date on the post page. |
 | `draft` | no | `true` hides the post from the live site. Defaults to `false`. |
 
 The fields are checked at build time (schema in `src/content.config.ts`). A misspelt field or a bad date fails the
@@ -66,8 +67,102 @@ build and names the file and the field, so a broken post can't go live by accide
   `![A short description](../../assets/blog/pic.jpg)`. Astro resizes and compresses it, and removes camera and GPS
   metadata.
 - **Code blocks:** use triple backticks with a language, such as ```` ```java ````, to get syntax highlighting in
-  light and dark mode.
+  light and dark mode. The special language `mermaid` draws a diagram instead (see Diagrams below).
 - **Headings:** start sections at `##`. The post title is already the page's `#` heading.
+
+## Footnotes
+
+Mark a reference in the text with `[^name]` and write the note anywhere in the file, on its own line starting with
+the same label:
+
+```md
+Retries can multiply load on a struggling service.[^load]
+
+[^load]: Called a *retry storm*. Notes can use **markdown** and `code` too.
+```
+
+Notes are numbered in the order they are referenced, collected under a "Footnotes" heading at the bottom of the post,
+and each one has a ↩ link back to where it was cited. A label can be any word without spaces (`[^1]`, `[^load]`).
+Every reference needs a matching note line.
+
+## Last updated dates
+
+When you revise a post that is already published, add an `updated` date to its frontmatter:
+
+```md
+date: 2026-08-23
+updated: 2026-11-12
+```
+
+The post page then shows `2026-08-23 · Updated 2026-11-12 · 3 min read`, and search engines also get the modified
+date. If `updated` is missing, or is the same as (or earlier than) `date`, nothing extra is shown. The date is typed
+by hand on purpose, so fixing a typo doesn't have to count as an update. `npm run new-post` leaves a commented
+`# updated:` line in new drafts as a reminder.
+
+## Callouts
+
+Use GitHub-style alerts to highlight something. Start a quote with one of five labels:
+
+```md
+> [!NOTE]
+> Useful information the reader should know.
+
+> [!TIP]
+> Helpful advice for doing things better.
+
+> [!IMPORTANT]
+> Key information the reader needs.
+
+> [!WARNING]
+> Something that needs attention.
+
+> [!CAUTION]
+> A risk of doing a certain thing.
+```
+
+Each one gets its own icon and colour, in both light and dark mode. A normal `>` quote without a label stays a plain
+blockquote.
+
+## Diagrams
+
+Write a diagram as text in a code block marked `mermaid`, and it is drawn in the browser:
+
+````md
+```mermaid
+flowchart LR
+  A[Client] --> B{Circuit breaker}
+  B -- closed --> C[Service]
+  B -- open --> D[Fallback]
+```
+````
+
+Flowcharts, sequence diagrams, state diagrams, class diagrams and more are supported (see the
+[Mermaid docs](https://mermaid.js.org/intro/)). Diagrams follow the dark mode toggle. The Mermaid library (a large
+file) is only downloaded on pages that contain a diagram, so other pages stay fast. If a diagram has a syntax
+error, the post shows the source text instead of breaking, so preview it with `npm run dev` before publishing. With
+JavaScript turned off, readers see the diagram source as a code block.
+
+## Share images
+
+Every post gets a share image automatically, so links to it look good on LinkedIn, Slack, X and WhatsApp. At build
+time `src/lib/og.ts` draws a 1200×630 card from the post's `title`, `summary` and `tags` and saves it as
+`/og/<post-name>.png`; the post's `og:image` tag points to it. There is nothing to design or upload. Edit those
+frontmatter fields and the card updates on the next deploy. Drafts get no card until they are published. Pages that
+aren't posts share `/og/default.png`. A `cover` image is only shown on the post page itself, not on the share card.
+
+## Analytics (GoatCounter)
+
+The site can count page views with [GoatCounter](https://www.goatcounter.com), which uses no cookies and doesn't track
+visitors across sites, so no cookie banner is needed. It is switched on by one setting in `src/data/site.ts`:
+
+```ts
+goatcounter: "yourcode",   // the "yourcode" in https://yourcode.goatcounter.com
+```
+
+Leave it as `""` to switch analytics off. When it has a value, every page on the live site loads GoatCounter's small
+script (nothing visible changes on the page). Visits while running `npm run dev` are never
+counted. Your dashboard is at `https://yourcode.goatcounter.com` and shows page views per post, where visitors came
+from, countries and devices.
 
 ## How tags work
 
@@ -95,6 +190,9 @@ post. Nothing needs maintaining: it is rebuilt from your markdown files on every
   `main`, and that the "Deploy to GitHub Pages" run on GitHub's Actions tab succeeded.
 - **The post appears locally but not in the tag list.** Tags only come from published posts, so a draft's tags don't
   appear in production.
+- **A diagram shows as plain code in `npm run dev`.** The dev server was started before a config change and is
+  still using the old settings. Stop it (`Ctrl+C`, or `npx astro dev stop` if it was left running in the
+  background) and start it again with `npm run dev`.
 - **A cover image isn't found.** The path is relative to the post file, so it should start with
   `../../assets/blog/`.
 
