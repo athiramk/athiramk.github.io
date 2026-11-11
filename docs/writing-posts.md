@@ -40,6 +40,7 @@ Add any `.md` file to `src/content/blog/`. The filename becomes the URL, so `cir
 | `tags` | no | A list such as `[java, concurrency]`. Keep tags lowercase. They create the sidebar links. |
 | `cover` | no | A cover image path, e.g. `../../assets/blog/pic.jpg`. Put the image in `src/assets/blog/` first. |
 | `coverAlt` | no | Alt text describing the cover image. Always fill this in if you set `cover`. |
+| `updated` | no | Date you last revised the post (`YYYY-MM-DD`). Shows "Updated …" next to the date on the post page. |
 | `draft` | no | `true` hides the post from the live site. Defaults to `false`. |
 
 The fields are checked at build time (schema in `src/content.config.ts`). A misspelt field or a bad date fails the
@@ -68,6 +69,35 @@ build and names the file and the field, so a broken post can't go live by accide
 - **Code blocks:** use triple backticks with a language, such as ```` ```java ````, to get syntax highlighting in
   light and dark mode. The special language `mermaid` draws a diagram instead (see Diagrams below).
 - **Headings:** start sections at `##`. The post title is already the page's `#` heading.
+
+## Footnotes
+
+Mark a reference in the text with `[^name]` and write the note anywhere in the file, on its own line starting with
+the same label:
+
+```md
+Retries can multiply load on a struggling service.[^load]
+
+[^load]: Called a *retry storm*. Notes can use **markdown** and `code` too.
+```
+
+Notes are numbered in the order they are referenced, collected under a "Footnotes" heading at the bottom of the post,
+and each one has a ↩ link back to where it was cited. A label can be any word without spaces (`[^1]`, `[^load]`).
+Every reference needs a matching note line.
+
+## Last updated dates
+
+When you revise a post that is already published, add an `updated` date to its frontmatter:
+
+```md
+date: 2026-08-23
+updated: 2026-11-12
+```
+
+The post page then shows `2026-08-23 · Updated 2026-11-12 · 3 min read`, and search engines also get the modified
+date. If `updated` is missing, or is the same as (or earlier than) `date`, nothing extra is shown. The date is typed
+by hand on purpose, so fixing a typo doesn't have to count as an update. `npm run new-post` leaves a commented
+`# updated:` line in new drafts as a reminder.
 
 ## Callouts
 

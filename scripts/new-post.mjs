@@ -24,6 +24,7 @@ summary: ""
 date: ${date}
 tags: []
 draft: true
+# updated: ${date}   # uncomment and change when you revise a published post
 ---
 
 Write your post here.

@@ -166,3 +166,15 @@ footer.site a { margin-right: 14px; }
 .mermaid-diagram pre { margin: 0; width: 100%; }
 .mermaid-diagram .edgeLabel, .mermaid-diagram .edgeLabel p, .mermaid-diagram .labelBkg { background-color: var(--card) !important; }
 .mermaid-diagram .edgeLabel rect { fill: var(--card) !important; opacity: 1; }
+
+/* footnotes: text[^1] ... [^1]: the note */
+.prose sup { line-height: 0; }
+.prose sup a, .prose a[data-footnote-backref] { text-decoration: none; }
+.prose sup a { font-size: .8em; font-weight: 700; padding: 0 2px; }
+.prose [id^="user-content-fn"], .prose [id^="user-content-fnref"] { scroll-margin-top: 80px; }
+.prose section.footnotes { margin-top: 56px; padding-top: 18px; border-top: 1px solid var(--line); font-size: 15px; color: var(--mute); }
+.prose section.footnotes h2 { position: static; width: auto; height: auto; clip: auto; overflow: visible; white-space: normal; margin: 0 0 8px; font-size: 13px; letter-spacing: .14em; text-transform: uppercase; font-weight: 700; color: var(--mute); }
+.prose section.footnotes ol { padding-left: 22px; margin: 0; }
+.prose section.footnotes li { margin-bottom: .5em; }
+.prose section.footnotes li p { margin: 0; display: inline; }
+.prose section.footnotes li:target { background: var(--soft); border-radius: 6px; }
