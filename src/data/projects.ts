@@ -1,5 +1,5 @@
 import qr from "../assets/projects/project-qr-code-crafter.png";
-import rhythm from "../assets/projects/project-body-rhythm.png";
+import swim from "../assets/projects/project-where-to-swim.png";
 
 export const projects = [
   {
@@ -10,10 +10,10 @@ export const projects = [
     tags: ["web app"],
   },
   {
-    title: "BodyRhythm",
-    description: "Decode what your body is saying — track moods, energy, cravings and more based on your cycle.",
-    url: "https://athiramk.com/body-rhythm/",
-    image: rhythm,
+    title: "Where to Swim",
+    description: "Which beach near South Melbourne is best for a swim right now.",
+    url: "https://athiramk.com/where-to-swim/",
+    image: swim,
     tags: ["web app"],
   },
   {
