@@ -69,6 +69,14 @@ build and names the file and the field, so a broken post can't go live by accide
   light and dark mode.
 - **Headings:** start sections at `##`. The post title is already the page's `#` heading.
 
+## Share images
+
+Every post gets a share image automatically, so links to it look good on LinkedIn, Slack, X and WhatsApp. At build
+time `src/lib/og.ts` draws a 1200×630 card from the post's `title`, `summary` and `tags` and saves it as
+`/og/<post-name>.png`; the post's `og:image` tag points to it. There is nothing to design or upload. Edit those
+frontmatter fields and the card updates on the next deploy. Drafts get no card until they are published. Pages that
+aren't posts share `/og/default.png`. A `cover` image is only shown on the post page itself, not on the share card.
+
 ## How tags work
 
 - Each post lists its tags in frontmatter.

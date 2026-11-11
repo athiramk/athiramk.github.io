@@ -16,7 +16,7 @@ const { post, newer, older } = Astro.props;
 const { Content } = await render(post);
 const { title, summary, date, tags, cover, coverAlt } = post.data;
 ---
-<Base title={title} description={summary} image={cover?.format === "svg" ? undefined : cover} type="article" date={date}>
+<Base title={title} description={summary} ogSlug={post.id} type="article" date={date}>
   <ReadingProgress />
   <article data-pagefind-body>
     <div class="eyebrow">{tags.join(" / ") || "blog"}</div>
