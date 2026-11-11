@@ -75,5 +75,42 @@ const tags = allTags(posts);
         m.setAttribute("aria-expanded", open);
       });
     </script>
+    <script>
+      // Draw ```mermaid code blocks as diagrams. The library is only downloaded on pages that have one.
+      const blocks = document.querySelectorAll<HTMLElement>("pre > code.language-mermaid");
+      if (blocks.length) {
+        const diagrams = [...blocks].map((code) => {
+          const el = document.createElement("div");
+          el.className = "mermaid-diagram";
+          el.dataset.source = code.textContent ?? "";
+          code.parentElement!.replaceWith(el);
+          return el;
+        });
+        const { default: mermaid } = await import("mermaid");
+        let run = 0;
+        const render = async () => {
+          const dark = document.documentElement.dataset.theme === "dark";
+          mermaid.initialize({
+            startOnLoad: false,
+            securityLevel: "strict",
+            theme: dark ? "dark" : "neutral",
+            fontFamily: '"Manrope Variable", system-ui, sans-serif',
+          });
+          for (const el of diagrams) {
+            try {
+              const { svg } = await mermaid.render(`mmd-${run++}`, el.dataset.source ?? "");
+              el.innerHTML = svg;
+            } catch {
+              const pre = document.createElement("pre");
+              pre.textContent = el.dataset.source ?? "";
+              el.replaceChildren(pre);
+            }
+          }
+        };
+        await render();
+        // redraw in matching colours when the theme toggle is used
+        new MutationObserver(render).observe(document.documentElement, { attributes: true, attributeFilter: ["data-theme"] });
+      }
+    </script>
   </body>
 </html>
