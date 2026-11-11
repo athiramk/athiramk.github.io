@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://athiramk.com/sitemap.xml
+Sitemap: https://athiramk.com/sitemap-index.xml

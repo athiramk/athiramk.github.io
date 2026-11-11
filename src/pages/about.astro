@@ -1,0 +1,63 @@
+---
+import { Image } from "astro:assets";
+import Base from "../layouts/Base.astro";
+import profile from "../assets/profile.jpg";
+import { experience, education, certifications, community, skills } from "../data/resume";
+---
+<Base title="About & resume" description="Athira Kamala's experience in Java, Spring Boot, microservices and cloud across IAG and Telstra.">
+  <div class="eyebrow">about</div>
+  <div class="profile">
+    <Image src={profile} alt="Illustration of Athira" width={240} height={240} />
+    <div>
+      <h1 style="margin:0">Hi, I'm <b>Athira</b></h1>
+      <p class="sub" style="margin:6px 0 0">Senior Software Engineer · Melbourne</p>
+    </div>
+  </div>
+  <p>
+    I build backend services and enjoy turning messy requirements into clean, dependable systems. Outside work I paint
+    with watercolours, cook, hike and read.
+  </p>
+  <p class="sub">
+    My name is pronounced <b>'Ah-thi-rah'</b> — 'ah' as in 'far', a soft 'thi' as in 'think', and 'rah' as in 'raw'.
+  </p>
+
+  <h2>Experience</h2>
+  <div class="timeline">
+    {experience.map((e) => (
+      <div>
+        <span class="meta">{e.period}</span>
+        <h3>{e.role}</h3>
+        <div class="co">{e.company}</div>
+        <div style="margin-top:6px">{e.tags.map((t) => <span class="tag">{t}</span>)}</div>
+        <p>{e.summary}</p>
+      </div>
+    ))}
+  </div>
+
+  <h2>Education</h2>
+  <div class="timeline">
+    {education.map((e) => (
+      <div><span class="meta">{e.period}</span><h3>{e.degree}</h3><div class="co">{e.institution}</div></div>
+    ))}
+  </div>
+
+  <h2>Certifications</h2>
+  {certifications.map((c) => <div class="row"><span>{c.name}</span><span class="meta">{c.year}</span></div>)}
+
+  <h2>Community</h2>
+  <div class="timeline">
+    {community.map((c) => (
+      <div><span class="meta">{c.period}</span><h3>{c.role}</h3><p>{c.description}</p></div>
+    ))}
+  </div>
+
+  <h2>Skills</h2>
+  <div class="grid">
+    {skills.map((g) => (
+      <div class="card">
+        <h3>{g.category}</h3>
+        <p>{g.items.map((i) => <span class="tag">{i}</span>)}</p>
+      </div>
+    ))}
+  </div>
+</Base>

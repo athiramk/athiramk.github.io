@@ -1,0 +1,13 @@
+---
+import Base from "../layouts/Base.astro";
+import Search from "astro-pagefind/components/Search.astro";
+---
+<Base title="Search" description="Search all blog posts.">
+  <div class="eyebrow">search</div>
+  <h1>Search posts</h1>
+  <Search id="search" className="pagefind-ui" uiOptions={{ showImages: false }} />
+  <noscript><p>Search needs JavaScript.</p></noscript>
+</Base>
+<style is:global>
+  .pagefind-ui { --pagefind-ui-primary: var(--acc); --pagefind-ui-text: var(--fg); --pagefind-ui-background: var(--card); --pagefind-ui-border: var(--line); --pagefind-ui-font: inherit; }
+</style>

@@ -1,0 +1,79 @@
+---
+import "../styles/global.css";
+import Head from "../components/Head.astro";
+import { SITE } from "../data/site";
+import { getPosts, allTags } from "../lib/posts";
+
+interface Props {
+  title?: string;
+  description?: string;
+  image?: ImageMetadata;
+  type?: "website" | "article";
+  date?: Date;
+}
+const props = Astro.props;
+const path = Astro.url.pathname.replace(/\/$/, "") || "/";
+const is = (p: string) => (p === "/" ? path === "/" : path === p || path.startsWith(p + "/"));
+const cur = (p: string) => (is(p) ? "page" : undefined);
+const posts = await getPosts();
+const tags = allTags(posts);
+---
+<!doctype html>
+<html lang="en" data-theme="light">
+  <head><Head {...props} /></head>
+  <body>
+    <a class="skip" href="#main">Skip to content</a>
+    <div class="top">
+      <div class="in">
+        <a class="logo" href="/">{SITE.name}</a>
+        <a class="l hide-s" href="/blog" aria-current={path === "/blog" || path.startsWith("/blog/") ? "page" : undefined}>Blog</a>
+        <a class="l hide-s" href="/projects" aria-current={cur("/projects")}>Projects</a>
+        <a class="l hide-s" href="/about" aria-current={cur("/about")}>About</a>
+        <a class="l hide-s" href="/contact" aria-current={cur("/contact")}>Contact</a>
+        <a class="search-link" href="/search">Search posts…</a>
+        <button class="icon-btn" id="theme" type="button" aria-label="Toggle dark mode">◐</button>
+        <button class="icon-btn menu-btn" id="menu" type="button" aria-expanded="false" aria-controls="side">Menu</button>
+      </div>
+    </div>
+    <div class="layout">
+      <aside class="side" id="side" aria-label="Site sections">
+        <div class="g">
+          <h4>Blog</h4>
+          <a href="/blog" aria-current={path === "/blog" ? "page" : undefined}>All posts</a>
+          {tags.map((t) => <a href={`/blog/tag/${t}`} aria-current={path === `/blog/tag/${t}` ? "page" : undefined}>{t}</a>)}
+        </div>
+        <div class="g">
+          <h4>Elsewhere</h4>
+          <a href="/projects" aria-current={cur("/projects")}>Projects</a>
+          <a href="/about" aria-current={cur("/about")}>About &amp; resume</a>
+          <a href="/hobbies" aria-current={cur("/hobbies")}>Hobbies</a>
+          <a href="/bookmarks" aria-current={cur("/bookmarks")}>Bookmarks</a>
+          <a href="/contact" aria-current={cur("/contact")}>Contact</a>
+          <a href="/rss.xml">RSS</a>
+        </div>
+      </aside>
+      <main id="main">
+        <slot />
+        <footer class="site">
+          <a href={SITE.github} rel="me noopener">GitHub</a>
+          <a href={SITE.linkedin} rel="me noopener">LinkedIn</a>
+          <a href="/rss.xml">RSS</a>
+          <div style="margin-top:8px">© {new Date().getFullYear()} {SITE.name}</div>
+        </footer>
+      </main>
+    </div>
+    <script is:inline>
+      document.getElementById("theme").addEventListener("click", function () {
+        var r = document.documentElement;
+        var n = r.dataset.theme === "dark" ? "light" : "dark";
+        r.dataset.theme = n;
+        try { localStorage.setItem("theme", n); } catch (e) {}
+      });
+      var m = document.getElementById("menu"), s = document.getElementById("side");
+      m.addEventListener("click", function () {
+        var open = s.classList.toggle("open");
+        m.setAttribute("aria-expanded", open);
+      });
+    </script>
+  </body>
+</html>
